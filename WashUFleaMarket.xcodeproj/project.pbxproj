@@ -27,6 +27,7 @@
 		E8DB2E9E1E6CE97400744919 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2E9D1E6CE97400744919 /* GoogleService-Info.plist */; };
 		E8DB2EA11E6CEBC000744919 /* 1476404080_38.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */; };
 		E8DB2EA21E6CEBC000744919 /* imovie-ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */; };
+		E8DB2EA41E6D022700744919 /* Shopping Cart Loaded-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2EA31E6D022700744919 /* Shopping Cart Loaded-50.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		E8DB2E9D1E6CE97400744919 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1476404080_38.png; sourceTree = "<group>"; };
 		E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imovie-ios-icon.png"; sourceTree = "<group>"; };
+		E8DB2EA31E6D022700744919 /* Shopping Cart Loaded-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping Cart Loaded-50.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */,
+				E8DB2EA31E6D022700744919 /* Shopping Cart Loaded-50.png */,
 				E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */,
 				4EDB64651E6CDD650000D7F3 /* AppDelegate.swift */,
 				4EDB64671E6CDD650000D7F3 /* ViewController.swift */,
@@ -314,6 +317,7 @@
 				4EDB64701E6CDD650000D7F3 /* LaunchScreen.storyboard in Resources */,
 				E8DB2EA21E6CEBC000744919 /* imovie-ios-icon.png in Resources */,
 				4EDB64A41E6CE0A80000D7F3 /* Detailed.xib in Resources */,
+				E8DB2EA41E6D022700744919 /* Shopping Cart Loaded-50.png in Resources */,
 				E8DB2EA11E6CEBC000744919 /* 1476404080_38.png in Resources */,
 				4EDB646D1E6CDD650000D7F3 /* Assets.xcassets in Resources */,
 				4EDB64941E6CDD890000D7F3 /* Main.storyboard in Resources */,

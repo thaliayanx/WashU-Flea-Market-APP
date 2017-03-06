@@ -8,25 +8,17 @@
     
     var image: UIImage!
     var name: String!
-    var year: String!
-    var score: String!
-    var rated: String!
     var id:String!
     
     @IBOutlet weak var theImage: UIImageView!
     @IBOutlet weak var theLabel: UILabel!
-    @IBOutlet weak var theYear: UILabel!
-    @IBOutlet weak var theScore: UILabel!
-    @IBOutlet weak var theRated: UILabel!
+    
     @IBOutlet weak var favoriteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         theImage.image = image
         theLabel.text = name
-        theYear.text = "Released:\(year)"
-        theYear.textAlignment = .center
-        theScore.text="Score:\(score)/10"
-        theRated.text="Rated:\(rated)"
+
         
         self.navigationItem.title = name
     }

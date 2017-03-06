@@ -33,7 +33,7 @@
         <scene sceneID="AlZ-qX-GRI">
             <objects>
                 <navigationController title="Movie" automaticallyAdjustsScrollViewInsets="NO" id="gjG-zH-Z86" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="1476404080_38.png" selectedImage="1476404080_38.png" id="f4Y-UP-YoI"/>
+                    <tabBarItem key="tabBarItem" image="1476404080_38.png" selectedImage="Shopping Cart Loaded-50.png" id="f4Y-UP-YoI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gpZ-jc-oKY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1481" y="1292"/>
         </scene>
-        <!--Movies-->
+        <!--Goodies-->
         <scene sceneID="rza-w2-a6w">
             <objects>
-                <viewController title="Movies" id="1Qx-Tf-oHI" customClass="MarketViewController" customModule="WashUFleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Movies" id="1Qx-Tf-oHI" userLabel="Goodies" customClass="MarketViewController" customModule="WashUFleaMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J0R-Uk-fIK"/>
                         <viewControllerLayoutGuide type="bottom" id="oEz-Xz-tCb"/>
@@ -126,5 +126,6 @@
     </scenes>
     <resources>
         <image name="1476404080_38.png" width="32" height="32"/>
+        <image name="Shopping Cart Loaded-50.png" width="50" height="50"/>
     </resources>
 </document>

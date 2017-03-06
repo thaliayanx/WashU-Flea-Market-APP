@@ -3,13 +3,13 @@
 //
 import Foundation
 struct Item{
-    var id:String
+    //var id:String
     var name:String
     var url:String
-    var price:Int
+    var price:String
     
-    init(id:String,name:String,url:String,price:Int,score:String,rated:String){
-        self.id=id
+    init(name:String,url:String,price:String){
+        //self.id=id
         self.name=name
         self.url=url
         self.price=price

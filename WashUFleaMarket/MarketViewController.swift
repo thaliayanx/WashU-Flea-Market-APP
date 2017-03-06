@@ -1,5 +1,5 @@
 //
-//  MovieSearchController.swift
+//
 //
 
 import UIKit
@@ -15,7 +15,8 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     var indicator: UIActivityIndicatorView!=UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     @IBOutlet weak var yearSlider: UISlider!
     @IBOutlet weak var searchBar: UISearchBar!
-    var theData:[Item]=[]
+    var theData:[Item] = []
+    //var theData:[Item]=[]
     var theDataTemp:[Item]=[]
     var theImageCache:[UIImage]=[]
     var collectionView: UICollectionView!
@@ -34,10 +35,36 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         notFound.text="No Results"
         notFound.font=UIFont(name: notFound.font!.fontName, size: 20)
         setupCollectionView()
-        self.title = "Movies"
-        self.navigationItem.title = "Movies"
+        self.title = "Goodies"
         self.view.addSubview(searchBar)
         self.searchBar.delegate = self
+        print("fetch data")
+        self.view.addSubview(indicator)
+        //notFound.removeFromSuperview()
+        //var json:JSON = JSON("")
+        //json=self.getJSON("http://www.omdbapi.com/?s=\(self.movieTitle)")
+        /*if json["Error"].stringValue=="Movie not found!"{
+         self.view.addSubview(self.notFound)
+         notFound.bringSubview(toFront: self.view)
+         }
+         else{*/
+        ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+            print("kkkkkk\(snapshot.childrenCount)") // I got the expected number of items
+            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                let itemValue = rest.value as! Dictionary<String, AnyObject>
+                let name = itemValue["name"] as? String ?? ""
+                let price = itemValue["price"] as? String ?? ""
+                let image = itemValue["image"] as? String ?? ""
+                
+                
+                self.theData.append(Item(name:name,url:image,price:price))
+                print("thedatacount=0?!bukenneng\(self.theData.count)")
+                self.collectionView.reloadData()
+            }
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         super.viewDidLoad()
     }
     
@@ -98,6 +125,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     }
     
     func setupCollectionView(){
+        print("setup")
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: 110, height: 150)
@@ -112,113 +140,36 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         notFound.bringSubview(toFront: self.view)
     }
     
-    /*func fetchDataForCollectionView(){
-        print("fetch data")
-        self.view.addSubview(indicator)
-        notFound.removeFromSuperview()
-        var json:JSON = JSON("")
-        json=self.getJSON("http://www.omdbapi.com/?s=\(self.movieTitle)")
-        if json["Error"].stringValue=="Movie not found!"{
-            self.view.addSubview(self.notFound)
-            notFound.bringSubview(toFront: self.view)
-        }
-        else{
-            for result in json["Search"].arrayValue{
-                let name = result["Title"].stringValue
-                var rated = ""
-                let url = result["Poster"].stringValue
-                let released = result["Year"].intValue
-                let id=result["imdbID"].stringValue
-                var score=""
-                let json2=self.getJSON("http://www.omdbapi.com/?i=\(id)")
-                score=json2["imdbRating"].stringValue
-                rated=json2["Rated"].stringValue
-                self.theData.append(Item(id:id,name:name,url:url,price:released,score:score,rated:rated))
-            }
-        }
-        if self.theData.count==10{
-            let json=self.getJSON("http://www.omdbapi.com/?s=\(self.movieTitle)&Page=2")
-            if json["Error"].stringValue=="Movie not found!"{
-                //self.view.addSubview(self.notFound)
-            }
-            else{
-                for result in json["Search"].arrayValue{
-                    let name = result["Title"].stringValue
-                    var rated = ""
-                    let url = result["Poster"].stringValue
-                    let price = result["Year"].intValue
-                    let id=result["imdbID"].stringValue
-                    var score=""
-                    let json2=self.getJSON("http://www.omdbapi.com/?i=\(id)")
-                    score=json2["imdbRating"].stringValue
-                    rated=json2["Rated"].stringValue
-                    self.theData.append(Item(id:id,name:name,url:url,price:price,score:score,rated:rated))
-                }
-            }
-            
-        }
-        for movie in theData{
-            if let year=Int(movie.released){
-                print(movie.name)
-                yearArray.append(year)
-            }
-            else{
-                print("movie\(movie.name)does not have a valid year")
-            }
-        }
-        yearArray = yearArray.sorted { $0 < $1 }
-        theDataTemp=theData
-        yearSlider.minimumValue=Float(0)
-        yearSlider.maximumValue=Float(self.yearArray.count)-1
-    }
-    */
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print ("jgg\(theData.count)")
         return theData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            let name = value?["name"] as? String ?? ""
-            let price = value?["price"] as? String ?? ""
-            let image = value?["image"] as? String ?? ""
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
+        print(1);
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         cell.backgroundColor = UIColor.clear
-        let url = URL(string: item.url)
+            cell.textLabel!.text = theData[indexPath.item].name
+        let url = URL(string: theData[indexPath.item].url)
         let data = try? Data(contentsOf: url!)
-        cell.textLabel!.text = name
-        cell.imageView?.image = theImageCache[indexPath.item]
+            cell.imageView?.image = UIImage(data: data!)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailedVC = Detailed(nibName: "Detailed", bundle: nil)
         detailedVC.name = theData[indexPath.item].name
-        detailedVC.image = theImageCache[indexPath.item]
-        detailedVC.score = theData[indexPath.item].released
-        detailedVC.id=theData[indexPath.item].id
+        let url = URL(string: theData[indexPath.item].url)
+        let data = try? Data(contentsOf: url!)
+        let image = UIImage(data: data!)
+        detailedVC.image = image
+        //detailedVC.score = theData[indexPath.item].released
+        //detailedVC.id=theData[indexPath.item].id
         navigationController?.pushViewController(detailedVC, animated: true)
     }
     
-   /* func getJSON(_ url: String) -> JSON {
-        if let nsurl = URL(string: url) {
-            if let data = try? Data(contentsOf: nsurl) {
-                let json = JSON(data: data)
-                return json
-            } else {
-                return nil
-            }
-        }
-        else {
-            return nil
-        }
-    }*/
-    
-    func cacheImages() {
+       /*func cacheImages() {
         for item in theData {
             let url = URL(string: item.url)
             let data = try? Data(contentsOf: url!)
@@ -236,7 +187,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         }
         
     }
-    
+    */
 }
 
 
