@@ -5,6 +5,9 @@
 import UIKit
 import Foundation
 import FirebaseCore
+import FirebaseAnalytics
+import FirebaseDatabase
+
 
 class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,UISearchBarDelegate {
     
@@ -19,12 +22,14 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     var movieTitle:String=""
     var notFound:UITextView=UITextView(frame:CGRect(x: 140, y: 300, width: 200, height: 200))
     var yearArray:[Int]=[]
+    var ref: FIRDatabaseReference! = FIRDatabase.database().reference()
     
     @IBAction func buttonClicked(_ sender: UIButton) {
         UserDefaults.standard.set([], forKey: "favoriteMovie")
         UserDefaults.standard.synchronize()
     }
     override func viewDidLoad() {
+        
         indicator.center=view.center
         notFound.text="No Results"
         notFound.font=UIFont(name: notFound.font!.fontName, size: 20)
@@ -36,7 +41,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         super.viewDidLoad()
     }
     
-    @IBAction func yearFiltered(_ sender: UISlider) {
+   /* @IBAction func yearFiltered(_ sender: UISlider) {
         if theDataTemp.count==0 {
             return
         }
@@ -60,13 +65,13 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
             }
         }
         collectionView.reloadData()
-    }
+    }*/
     
     func sortFunc(_ num1: Int, num2: Int) -> Bool {
         return num1 < num2
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    /*func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         notFound.bringSubview(toFront: self.view)
         if searchBar.text != nil{
             DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async{
@@ -85,7 +90,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
                 }
             }
         }
-    }
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -107,7 +112,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         notFound.bringSubview(toFront: self.view)
     }
     
-    func fetchDataForCollectionView(){
+    /*func fetchDataForCollectionView(){
         print("fetch data")
         self.view.addSubview(indicator)
         notFound.removeFromSuperview()
@@ -122,13 +127,13 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
                 let name = result["Title"].stringValue
                 var rated = ""
                 let url = result["Poster"].stringValue
-                let released = result["Year"].stringValue
+                let released = result["Year"].intValue
                 let id=result["imdbID"].stringValue
                 var score=""
                 let json2=self.getJSON("http://www.omdbapi.com/?i=\(id)")
                 score=json2["imdbRating"].stringValue
                 rated=json2["Rated"].stringValue
-                self.theData.append(Item(id:id,name:name,url:url,released:released,score:score,rated:rated))
+                self.theData.append(Item(id:id,name:name,url:url,price:released,score:score,rated:rated))
             }
         }
         if self.theData.count==10{
@@ -141,13 +146,13 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
                     let name = result["Title"].stringValue
                     var rated = ""
                     let url = result["Poster"].stringValue
-                    let released = result["Year"].stringValue
+                    let price = result["Year"].intValue
                     let id=result["imdbID"].stringValue
                     var score=""
                     let json2=self.getJSON("http://www.omdbapi.com/?i=\(id)")
                     score=json2["imdbRating"].stringValue
                     rated=json2["Rated"].stringValue
-                    self.theData.append(Item(id:id,name:name,url:url,released:released,score:score,rated:rated))
+                    self.theData.append(Item(id:id,name:name,url:url,price:price,score:score,rated:rated))
                 }
             }
             
@@ -166,15 +171,26 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         yearSlider.minimumValue=Float(0)
         yearSlider.maximumValue=Float(self.yearArray.count)-1
     }
-    
+    */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return theData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let name = value?["name"] as? String ?? ""
+            let price = value?["price"] as? String ?? ""
+            let image = value?["image"] as? String ?? ""
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         cell.backgroundColor = UIColor.clear
-        cell.textLabel!.text = theData[indexPath.item].name
+        let url = URL(string: item.url)
+        let data = try? Data(contentsOf: url!)
+        cell.textLabel!.text = name
         cell.imageView?.image = theImageCache[indexPath.item]
         return cell
     }
@@ -183,14 +199,12 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         let detailedVC = Detailed(nibName: "Detailed", bundle: nil)
         detailedVC.name = theData[indexPath.item].name
         detailedVC.image = theImageCache[indexPath.item]
-        detailedVC.year = theData[indexPath.item].released
-        detailedVC.score = theData[indexPath.item].score
-        detailedVC.rated = theData[indexPath.item].rated
+        detailedVC.score = theData[indexPath.item].released
         detailedVC.id=theData[indexPath.item].id
         navigationController?.pushViewController(detailedVC, animated: true)
     }
     
-    func getJSON(_ url: String) -> JSON {
+   /* func getJSON(_ url: String) -> JSON {
         if let nsurl = URL(string: url) {
             if let data = try? Data(contentsOf: nsurl) {
                 let json = JSON(data: data)
@@ -202,7 +216,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         else {
             return nil
         }
-    }
+    }*/
     
     func cacheImages() {
         for item in theData {

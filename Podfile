@@ -7,6 +7,7 @@ target 'WashUFleaMarket' do
 
   # Pods for WashUFleaMarket
 	pod 'Firebase/Core'
+	pod 'Firebase/Database’
   target 'WashUFleaMarketTests' do
     inherit! :search_paths
     # Pods for testing
