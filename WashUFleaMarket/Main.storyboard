@@ -33,7 +33,7 @@
         <scene sceneID="AlZ-qX-GRI">
             <objects>
                 <navigationController title="Movie" automaticallyAdjustsScrollViewInsets="NO" id="gjG-zH-Z86" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="1476404080_38.png" selectedImage="Shopping Cart Loaded-50.png" id="f4Y-UP-YoI"/>
+                    <tabBarItem key="tabBarItem" image="Shopping Cart Loaded-50.png" selectedImage="Shopping Cart Loaded-50.png" id="f4Y-UP-YoI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gpZ-jc-oKY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iyV-hQ-cn8">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -125,7 +125,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1476404080_38.png" width="32" height="32"/>
         <image name="Shopping Cart Loaded-50.png" width="50" height="50"/>
     </resources>
 </document>
