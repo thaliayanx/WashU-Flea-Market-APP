@@ -106,6 +106,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     }
     
     func fetchDataForCollectionView(){
+        print("fetch data")
         self.view.addSubview(indicator)
         notFound.removeFromSuperview()
         var json:JSON = JSON("")
