@@ -4,6 +4,8 @@
 
 import UIKit
 import Foundation
+import FirebaseCore
+
 class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,UISearchBarDelegate {
     
     @IBOutlet weak var clearFavorite: UIButton!

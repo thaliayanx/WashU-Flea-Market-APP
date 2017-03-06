@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A7C9AA1DD7CB02260C0C674 /* Pods_WashUFleaMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491F3A22A43FAB9A17E79738 /* Pods_WashUFleaMarket.framework */; };
 		4EDB64661E6CDD650000D7F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB64651E6CDD650000D7F3 /* AppDelegate.swift */; };
 		4EDB64681E6CDD650000D7F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB64671E6CDD650000D7F3 /* ViewController.swift */; };
 		4EDB646D1E6CDD650000D7F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB646C1E6CDD650000D7F3 /* Assets.xcassets */; };
@@ -21,6 +22,11 @@
 		4EDB64A01E6CE01C0000D7F3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB649F1E6CE01C0000D7F3 /* SwiftyJSON.swift */; };
 		4EDB64A21E6CE07E0000D7F3 /* Detailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB64A11E6CE07E0000D7F3 /* Detailed.swift */; };
 		4EDB64A41E6CE0A80000D7F3 /* Detailed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB64A31E6CE0A80000D7F3 /* Detailed.xib */; };
+		7AC7A61CD369CC435DF5725F /* Pods_WashUFleaMarketUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96ACA85B86A7A1D36E1303C6 /* Pods_WashUFleaMarketUITests.framework */; };
+		B993B96873137CAF9BB41BB7 /* Pods_WashUFleaMarketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5469044A579C570F13DAAB6 /* Pods_WashUFleaMarketTests.framework */; };
+		E8DB2E9E1E6CE97400744919 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2E9D1E6CE97400744919 /* GoogleService-Info.plist */; };
+		E8DB2EA11E6CEBC000744919 /* 1476404080_38.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */; };
+		E8DB2EA21E6CEBC000744919 /* imovie-ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0538B883A72EC43E9E21DDE2 /* Pods-WashUFleaMarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashUFleaMarketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WashUFleaMarketTests/Pods-WashUFleaMarketTests.debug.xcconfig"; sourceTree = "<group>"; };
+		063AE31635AB2E404C17A7B3 /* Pods-WashUFleaMarketUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashUFleaMarketUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WashUFleaMarketUITests/Pods-WashUFleaMarketUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		10BE70CB8D8F4231A31B7315 /* Pods-WashUFleaMarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashUFleaMarketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WashUFleaMarketTests/Pods-WashUFleaMarketTests.release.xcconfig"; sourceTree = "<group>"; };
+		21D9D8BBCAEC521213E15727 /* Pods-WashUFleaMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashUFleaMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-WashUFleaMarket/Pods-WashUFleaMarket.release.xcconfig"; sourceTree = "<group>"; };
+		491F3A22A43FAB9A17E79738 /* Pods_WashUFleaMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WashUFleaMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB64621E6CDD650000D7F3 /* WashUFleaMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WashUFleaMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB64651E6CDD650000D7F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EDB64671E6CDD650000D7F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +72,13 @@
 		4EDB649F1E6CE01C0000D7F3 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		4EDB64A11E6CE07E0000D7F3 /* Detailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detailed.swift; sourceTree = "<group>"; };
 		4EDB64A31E6CE0A80000D7F3 /* Detailed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Detailed.xib; sourceTree = "<group>"; };
+		79AD79AC221A8D6647ADAC4E /* Pods-WashUFleaMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashUFleaMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WashUFleaMarket/Pods-WashUFleaMarket.debug.xcconfig"; sourceTree = "<group>"; };
+		93A310F7511445BAF2238572 /* Pods-WashUFleaMarketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashUFleaMarketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WashUFleaMarketUITests/Pods-WashUFleaMarketUITests.release.xcconfig"; sourceTree = "<group>"; };
+		96ACA85B86A7A1D36E1303C6 /* Pods_WashUFleaMarketUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WashUFleaMarketUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5469044A579C570F13DAAB6 /* Pods_WashUFleaMarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WashUFleaMarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8DB2E9D1E6CE97400744919 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1476404080_38.png; sourceTree = "<group>"; };
+		E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imovie-ios-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A7C9AA1DD7CB02260C0C674 /* Pods_WashUFleaMarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B993B96873137CAF9BB41BB7 /* Pods_WashUFleaMarketTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC7A61CD369CC435DF5725F /* Pods_WashUFleaMarketUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +116,8 @@
 				4EDB64791E6CDD650000D7F3 /* WashUFleaMarketTests */,
 				4EDB64841E6CDD650000D7F3 /* WashUFleaMarketUITests */,
 				4EDB64631E6CDD650000D7F3 /* Products */,
+				67A9602F2266BFF602B9A2D3 /* Pods */,
+				8A9226AEB1B8CB1F2D2D62E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +134,8 @@
 		4EDB64641E6CDD650000D7F3 /* WashUFleaMarket */ = {
 			isa = PBXGroup;
 			children = (
+				E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */,
+				E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */,
 				4EDB64651E6CDD650000D7F3 /* AppDelegate.swift */,
 				4EDB64671E6CDD650000D7F3 /* ViewController.swift */,
 				4EDB64931E6CDD890000D7F3 /* Main.storyboard */,
@@ -119,6 +144,7 @@
 				4EDB64711E6CDD650000D7F3 /* Info.plist */,
 				4EDB64951E6CDE860000D7F3 /* MarketViewController.swift */,
 				4EDB64991E6CDF180000D7F3 /* Item.swift */,
+				E8DB2E9D1E6CE97400744919 /* GoogleService-Info.plist */,
 				4EDB649B1E6CDF760000D7F3 /* FavoriteController.swift */,
 				4EDB649D1E6CDFFA0000D7F3 /* MyCell.swift */,
 				4EDB649F1E6CE01C0000D7F3 /* SwiftyJSON.swift */,
@@ -146,6 +172,29 @@
 			path = WashUFleaMarketUITests;
 			sourceTree = "<group>";
 		};
+		67A9602F2266BFF602B9A2D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79AD79AC221A8D6647ADAC4E /* Pods-WashUFleaMarket.debug.xcconfig */,
+				21D9D8BBCAEC521213E15727 /* Pods-WashUFleaMarket.release.xcconfig */,
+				0538B883A72EC43E9E21DDE2 /* Pods-WashUFleaMarketTests.debug.xcconfig */,
+				10BE70CB8D8F4231A31B7315 /* Pods-WashUFleaMarketTests.release.xcconfig */,
+				063AE31635AB2E404C17A7B3 /* Pods-WashUFleaMarketUITests.debug.xcconfig */,
+				93A310F7511445BAF2238572 /* Pods-WashUFleaMarketUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8A9226AEB1B8CB1F2D2D62E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				491F3A22A43FAB9A17E79738 /* Pods_WashUFleaMarket.framework */,
+				B5469044A579C570F13DAAB6 /* Pods_WashUFleaMarketTests.framework */,
+				96ACA85B86A7A1D36E1303C6 /* Pods_WashUFleaMarketUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EDB648A1E6CDD650000D7F3 /* Build configuration list for PBXNativeTarget "WashUFleaMarket" */;
 			buildPhases = (
+				CABFA0DD46799494F9168572 /* [CP] Check Pods Manifest.lock */,
 				4EDB645E1E6CDD650000D7F3 /* Sources */,
 				4EDB645F1E6CDD650000D7F3 /* Frameworks */,
 				4EDB64601E6CDD650000D7F3 /* Resources */,
+				EE8D50D839992E5C9650A899 /* [CP] Embed Pods Frameworks */,
+				7B1D59CFD43A9A51CB9B3413 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EDB648D1E6CDD650000D7F3 /* Build configuration list for PBXNativeTarget "WashUFleaMarketTests" */;
 			buildPhases = (
+				812021F83F9C49CE0517261A /* [CP] Check Pods Manifest.lock */,
 				4EDB64721E6CDD650000D7F3 /* Sources */,
 				4EDB64731E6CDD650000D7F3 /* Frameworks */,
 				4EDB64741E6CDD650000D7F3 /* Resources */,
+				46EA1A2B6EDB16C8A93AC623 /* [CP] Embed Pods Frameworks */,
+				DD8746A3A670B7CF697EE94D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,9 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EDB64901E6CDD650000D7F3 /* Build configuration list for PBXNativeTarget "WashUFleaMarketUITests" */;
 			buildPhases = (
+				729B4BA29E5F70157337C3D9 /* [CP] Check Pods Manifest.lock */,
 				4EDB647D1E6CDD650000D7F3 /* Sources */,
 				4EDB647E1E6CDD650000D7F3 /* Frameworks */,
 				4EDB647F1E6CDD650000D7F3 /* Resources */,
+				98CF8F73CEA51CCF740F17E9 /* [CP] Embed Pods Frameworks */,
+				9E7FB31AC83FD82FD7671EB2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,9 +312,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EDB64701E6CDD650000D7F3 /* LaunchScreen.storyboard in Resources */,
+				E8DB2EA21E6CEBC000744919 /* imovie-ios-icon.png in Resources */,
 				4EDB64A41E6CE0A80000D7F3 /* Detailed.xib in Resources */,
+				E8DB2EA11E6CEBC000744919 /* 1476404080_38.png in Resources */,
 				4EDB646D1E6CDD650000D7F3 /* Assets.xcassets in Resources */,
 				4EDB64941E6CDD890000D7F3 /* Main.storyboard in Resources */,
+				E8DB2E9E1E6CE97400744919 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +336,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46EA1A2B6EDB16C8A93AC623 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WashUFleaMarketTests/Pods-WashUFleaMarketTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		729B4BA29E5F70157337C3D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7B1D59CFD43A9A51CB9B3413 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WashUFleaMarket/Pods-WashUFleaMarket-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		812021F83F9C49CE0517261A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		98CF8F73CEA51CCF740F17E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WashUFleaMarketUITests/Pods-WashUFleaMarketUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E7FB31AC83FD82FD7671EB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WashUFleaMarketUITests/Pods-WashUFleaMarketUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CABFA0DD46799494F9168572 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD8746A3A670B7CF697EE94D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WashUFleaMarketTests/Pods-WashUFleaMarketTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE8D50D839992E5C9650A899 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WashUFleaMarket/Pods-WashUFleaMarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4EDB645E1E6CDD650000D7F3 /* Sources */ = {
@@ -428,6 +627,7 @@
 		};
 		4EDB648B1E6CDD650000D7F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79AD79AC221A8D6647ADAC4E /* Pods-WashUFleaMarket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WashUFleaMarket/Info.plist;
@@ -440,6 +640,7 @@
 		};
 		4EDB648C1E6CDD650000D7F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21D9D8BBCAEC521213E15727 /* Pods-WashUFleaMarket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WashUFleaMarket/Info.plist;
@@ -452,6 +653,7 @@
 		};
 		4EDB648E1E6CDD650000D7F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0538B883A72EC43E9E21DDE2 /* Pods-WashUFleaMarketTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -466,6 +668,7 @@
 		};
 		4EDB648F1E6CDD650000D7F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10BE70CB8D8F4231A31B7315 /* Pods-WashUFleaMarketTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -480,6 +683,7 @@
 		};
 		4EDB64911E6CDD650000D7F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 063AE31635AB2E404C17A7B3 /* Pods-WashUFleaMarketUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WashUFleaMarketUITests/Info.plist;
@@ -493,6 +697,7 @@
 		};
 		4EDB64921E6CDD650000D7F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93A310F7511445BAF2238572 /* Pods-WashUFleaMarketUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WashUFleaMarketUITests/Info.plist;
@@ -523,6 +728,7 @@
 				4EDB648C1E6CDD650000D7F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EDB648D1E6CDD650000D7F3 /* Build configuration list for PBXNativeTarget "WashUFleaMarketTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +737,7 @@
 				4EDB648F1E6CDD650000D7F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EDB64901E6CDD650000D7F3 /* Build configuration list for PBXNativeTarget "WashUFleaMarketUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +746,7 @@
 				4EDB64921E6CDD650000D7F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

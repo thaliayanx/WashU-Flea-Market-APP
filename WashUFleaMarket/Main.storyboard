@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z1L-xJ-Q6X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z1L-xJ-Q6X">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -87,7 +87,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iyV-hQ-cn8" firstAttribute="leading" secondItem="cRA-vN-0hy" secondAttribute="leading" id="Ahk-h7-L08"/>
-                            <constraint firstItem="iyV-hQ-cn8" firstAttribute="centerX" secondItem="cRA-vN-0hy" secondAttribute="centerX" constant="112.5" id="Lmb-Tt-CsG"/>
+                            <constraint firstItem="iyV-hQ-cn8" firstAttribute="centerX" secondItem="cRA-vN-0hy" secondAttribute="centerX" id="Lmb-Tt-CsG"/>
                             <constraint firstAttribute="trailing" secondItem="iyV-hQ-cn8" secondAttribute="trailing" id="OPb-Nq-4pX"/>
                             <constraint firstItem="iyV-hQ-cn8" firstAttribute="top" secondItem="J0R-Uk-fIK" secondAttribute="bottom" id="Xne-ym-1y5"/>
                         </constraints>
