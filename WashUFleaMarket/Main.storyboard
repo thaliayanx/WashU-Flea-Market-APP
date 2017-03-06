@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z1L-xJ-Q6X">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="75L-2H-XwJ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Z1L-xJ-Q6X" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PlX-70-uE4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="YvP-4X-Drc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gjG-zH-Z86" kind="relationship" relationship="viewControllers" id="MRN-b2-dp4"/>
+                        <segue destination="EyQ-dI-0Yt" kind="relationship" relationship="viewControllers" id="lB0-kS-NtD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1W-bh-BvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="295"/>
+        </scene>
+        <!--Movie-->
+        <scene sceneID="AlZ-qX-GRI">
+            <objects>
+                <navigationController title="Movie" automaticallyAdjustsScrollViewInsets="NO" id="gjG-zH-Z86" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="1476404080_38.png" selectedImage="1476404080_38.png" id="f4Y-UP-YoI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gpZ-jc-oKY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1Qx-Tf-oHI" kind="relationship" relationship="rootViewController" id="wff-qk-Qfz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ptg-gC-Klj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1931" y="380"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="o5h-i9-GXs">
+            <objects>
+                <viewController storyboardIdentifier="FavoriteController" title="Favorites" id="EyQ-dI-0Yt" customClass="FavoriteController" customModule="WashUFleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ger-0k-ox4"/>
+                        <viewControllerLayoutGuide type="bottom" id="wpY-ti-TsK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="INu-5X-riN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="FQS-M5-GfM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7za-Tt-XJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481" y="1292"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="rza-w2-a6w">
+            <objects>
+                <viewController title="Movies" id="1Qx-Tf-oHI" customClass="MarketViewController" customModule="WashUFleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J0R-Uk-fIK"/>
+                        <viewControllerLayoutGuide type="bottom" id="oEz-Xz-tCb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cRA-vN-0hy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iyV-hQ-cn8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iyV-hQ-cn8" firstAttribute="leading" secondItem="cRA-vN-0hy" secondAttribute="leading" id="Ahk-h7-L08"/>
+                            <constraint firstItem="iyV-hQ-cn8" firstAttribute="centerX" secondItem="cRA-vN-0hy" secondAttribute="centerX" constant="112.5" id="Lmb-Tt-CsG"/>
+                            <constraint firstAttribute="trailing" secondItem="iyV-hQ-cn8" secondAttribute="trailing" id="OPb-Nq-4pX"/>
+                            <constraint firstItem="iyV-hQ-cn8" firstAttribute="top" secondItem="J0R-Uk-fIK" secondAttribute="bottom" id="Xne-ym-1y5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="G34-Bd-5r4">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="6Bk-Gv-pfm">
+                            <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="XVl-vL-I1R">
+                                <rect key="frame" x="14" y="7" width="133" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="yearFiltered:" destination="1Qx-Tf-oHI" eventType="valueChanged" id="92G-Dn-jh4"/>
+                                </connections>
+                            </slider>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="W1J-ew-lSD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Td-Be-98e">
+                                <rect key="frame" x="226" y="7" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear Favorite"/>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="1Qx-Tf-oHI" eventType="primaryActionTriggered" id="hje-sy-on4"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="clearFavorite" destination="7Td-Be-98e" id="2YY-Zu-WRZ"/>
+                        <outlet property="searchBar" destination="iyV-hQ-cn8" id="w2e-Rx-CdL"/>
+                        <outlet property="yearSlider" destination="XVl-vL-I1R" id="IiH-zO-frU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e8s-ij-tRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2757" y="368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1476404080_38.png" width="32" height="32"/>
+    </resources>
+</document>
