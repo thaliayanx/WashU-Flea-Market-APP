@@ -8,6 +8,11 @@ class FavoriteController: UIViewController, UITableViewDataSource, UITableViewDe
     var tableView: UITableView!
     var defaults = UserDefaults.standard
     override func viewDidLoad() {
+        let tmp=UserDefaults.standard.object(forKey: "favoriteMovie")
+        if tmp==nil{
+            UserDefaults.standard.set([], forKey: "favoriteMovie")
+            UserDefaults.standard.synchronize()
+        }
         super.viewDidLoad()
         let data=UserDefaults.standard.array(forKey: "favoriteMovie")!
         if data.count==0{
