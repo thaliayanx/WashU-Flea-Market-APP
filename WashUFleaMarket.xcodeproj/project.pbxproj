@@ -28,6 +28,7 @@
 		E8DB2EA11E6CEBC000744919 /* 1476404080_38.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */; };
 		E8DB2EA21E6CEBC000744919 /* imovie-ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */; };
 		E8DB2EA41E6D022700744919 /* Shopping Cart Loaded-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2EA31E6D022700744919 /* Shopping Cart Loaded-50.png */; };
+		F6E244D11E89924800FB864D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E244D01E89924800FB864D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1476404080_38.png; sourceTree = "<group>"; };
 		E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imovie-ios-icon.png"; sourceTree = "<group>"; };
 		E8DB2EA31E6D022700744919 /* Shopping Cart Loaded-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping Cart Loaded-50.png"; sourceTree = "<group>"; };
+		F6E244D01E89924800FB864D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				4EDB649F1E6CE01C0000D7F3 /* SwiftyJSON.swift */,
 				4EDB64A11E6CE07E0000D7F3 /* Detailed.swift */,
 				4EDB64A31E6CE0A80000D7F3 /* Detailed.xib */,
+				F6E244D01E89924800FB864D /* LoginViewController.swift */,
 			);
 			path = WashUFleaMarket;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E244D11E89924800FB864D /* LoginViewController.swift in Sources */,
 				4EDB649C1E6CDF760000D7F3 /* FavoriteController.swift in Sources */,
 				4EDB649A1E6CDF180000D7F3 /* Item.swift in Sources */,
 				4EDB64681E6CDD650000D7F3 /* ViewController.swift in Sources */,
