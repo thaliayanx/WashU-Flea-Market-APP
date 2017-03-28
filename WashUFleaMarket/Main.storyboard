@@ -21,31 +21,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rM9-2l-Ohc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Jy-0K-AJl">
                                 <rect key="frame" x="139" y="225" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WashU Flea Market" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzg-wv-7wq">
-                                <rect key="frame" x="113" y="123" width="148" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsH-Vs-spH">
-                                <rect key="frame" x="211" y="403" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Up"/>
-                                <connections>
-                                    <action selector="SignUp:" destination="GBq-sz-eb2" eventType="primaryActionTriggered" id="TGO-BR-TX7"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clg-Jm-FMu">
-                                <rect key="frame" x="113" y="403" width="47" height="30"/>
+                                <rect key="frame" x="67" y="392" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign In"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" red="0.94012945890426636" green="0.97221320867538452" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="SignIn:" destination="GBq-sz-eb2" eventType="primaryActionTriggered" id="IFQ-OX-diY"/>
                                 </connections>
@@ -56,12 +46,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsH-Vs-spH">
+                                <rect key="frame" x="264" y="392" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.94012945890426636" green="0.97221320867538452" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignUp:" destination="GBq-sz-eb2" eventType="primaryActionTriggered" id="TGO-BR-TX7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rM9-2l-Ohc" secondAttribute="trailing" id="349-Ns-EGX"/>
+                            <constraint firstItem="3Vn-gc-QNB" firstAttribute="top" secondItem="rM9-2l-Ohc" secondAttribute="bottom" id="5Cz-rG-uOh"/>
                             <constraint firstItem="Rjl-uV-mA2" firstAttribute="centerY" secondItem="vU6-0p-bSH" secondAttribute="centerY" id="QvX-zr-9Ws"/>
                             <constraint firstItem="Rjl-uV-mA2" firstAttribute="centerX" secondItem="vU6-0p-bSH" secondAttribute="centerX" id="XrA-Jf-9lk"/>
                             <constraint firstItem="7Jy-0K-AJl" firstAttribute="centerX" secondItem="vU6-0p-bSH" secondAttribute="centerX" id="YBc-jG-OSi"/>
+                            <constraint firstItem="rM9-2l-Ohc" firstAttribute="leading" secondItem="vU6-0p-bSH" secondAttribute="leading" id="dDf-Jd-spa"/>
+                            <constraint firstItem="rM9-2l-Ohc" firstAttribute="top" secondItem="vU6-0p-bSH" secondAttribute="top" id="mS3-ZZ-HfR"/>
                             <constraint firstItem="Rjl-uV-mA2" firstAttribute="top" secondItem="7Jy-0K-AJl" secondAttribute="bottom" constant="78" id="o6V-QE-fTq"/>
                         </constraints>
                     </view>
@@ -73,7 +77,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FH4-LM-8ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="295"/>
+            <point key="canvasLocation" x="333.60000000000002" y="294.60269865067471"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="8gn-3O-zIr">
+            <objects>
+                <viewController id="4g0-BW-kEW" customClass="SettingViewController" customModule="WashUFleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ScZ-lv-2yP"/>
+                        <viewControllerLayoutGuide type="bottom" id="gWP-M2-1dr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IOB-uI-cZL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBI-77-BL1">
+                                <rect key="frame" x="0.0" y="192" width="375" height="54"/>
+                                <color key="backgroundColor" red="0.94012945890426636" green="0.97221320867538452" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Reset Password"/>
+                                <connections>
+                                    <action selector="ResetPwd:" destination="4g0-BW-kEW" eventType="primaryActionTriggered" id="mYz-Vw-kfQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmk-e4-TCP">
+                                <rect key="frame" x="0.0" y="282" width="375" height="53"/>
+                                <color key="backgroundColor" red="0.94012945890426636" green="0.97221320867538452" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Notification"/>
+                                <connections>
+                                    <action selector="Notification:" destination="4g0-BW-kEW" eventType="primaryActionTriggered" id="kcq-mN-2tT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Z7-6u-Iyo">
+                                <rect key="frame" x="0.0" y="374" width="375" height="51"/>
+                                <color key="backgroundColor" red="0.94012945890426636" green="0.97221320867538452" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="LogOut:" destination="4g0-BW-kEW" eventType="primaryActionTriggered" id="Qcl-WN-1bR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Fmk-e4-TCP" secondAttribute="trailing" id="0Fo-5a-vA6"/>
+                            <constraint firstItem="9Z7-6u-Iyo" firstAttribute="centerX" secondItem="IOB-uI-cZL" secondAttribute="centerX" id="33a-m4-yNE"/>
+                            <constraint firstItem="9Z7-6u-Iyo" firstAttribute="leading" secondItem="IOB-uI-cZL" secondAttribute="leading" id="Lty-0k-ZYi"/>
+                            <constraint firstItem="bBI-77-BL1" firstAttribute="centerX" secondItem="IOB-uI-cZL" secondAttribute="centerX" id="OIY-kN-ylT"/>
+                            <constraint firstItem="9Z7-6u-Iyo" firstAttribute="top" secondItem="Fmk-e4-TCP" secondAttribute="bottom" constant="36" id="b4Q-FO-5Zj"/>
+                            <constraint firstItem="Fmk-e4-TCP" firstAttribute="top" secondItem="bBI-77-BL1" secondAttribute="bottom" constant="36" id="cFf-T3-cTh"/>
+                            <constraint firstItem="Fmk-e4-TCP" firstAttribute="centerY" secondItem="IOB-uI-cZL" secondAttribute="centerY" id="cvW-kR-4Qv"/>
+                            <constraint firstAttribute="trailing" secondItem="bBI-77-BL1" secondAttribute="trailing" id="fgH-dM-98s"/>
+                            <constraint firstItem="Fmk-e4-TCP" firstAttribute="leading" secondItem="IOB-uI-cZL" secondAttribute="leading" id="iTk-En-Q2H"/>
+                            <constraint firstItem="bBI-77-BL1" firstAttribute="leading" secondItem="IOB-uI-cZL" secondAttribute="leading" id="q51-Gh-aOd"/>
+                            <constraint firstItem="Fmk-e4-TCP" firstAttribute="centerX" secondItem="IOB-uI-cZL" secondAttribute="centerX" id="uc3-ob-alb"/>
+                            <constraint firstAttribute="trailing" secondItem="9Z7-6u-Iyo" secondAttribute="trailing" id="y1p-tj-uwx"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Setting" image="1490751482_Setting.png" selectedImage="1490751482_Setting.png" id="9bU-cS-TLg"/>
+                    <connections>
+                        <segue destination="GBq-sz-eb2" kind="show" identifier="Logout" id="B6n-qL-Ad6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBL-bt-6ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613.60000000000002" y="1175.2623688155923"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="75L-2H-XwJ">
@@ -89,6 +155,7 @@
                     <connections>
                         <segue destination="gjG-zH-Z86" kind="relationship" relationship="viewControllers" id="MRN-b2-dp4"/>
                         <segue destination="EyQ-dI-0Yt" kind="relationship" relationship="viewControllers" id="lB0-kS-NtD"/>
+                        <segue destination="4g0-BW-kEW" kind="relationship" relationship="viewControllers" id="cgF-Fr-XxZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1W-bh-BvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -99,7 +166,7 @@
         <scene sceneID="AlZ-qX-GRI">
             <objects>
                 <navigationController title="Movie" automaticallyAdjustsScrollViewInsets="NO" id="gjG-zH-Z86" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="Shopping Cart Loaded-50.png" selectedImage="Shopping Cart Loaded-50.png" id="f4Y-UP-YoI"/>
+                    <tabBarItem key="tabBarItem" title="Market" image="1490751591_Cart.png" selectedImage="1490751591_Cart.png" id="f4Y-UP-YoI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gpZ-jc-oKY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -191,6 +258,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Shopping Cart Loaded-50.png" width="50" height="50"/>
+        <image name="1490751482_Setting.png" width="32" height="32"/>
+        <image name="1490751591_Cart.png" width="32" height="32"/>
+        <image name="login.jpg" width="1242" height="2208"/>
     </resources>
 </document>
