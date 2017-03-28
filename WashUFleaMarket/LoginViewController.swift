@@ -34,44 +34,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func SignUp(_ sender: Any) {
-        /*FIRAuth.auth()?.createUser(withEmail: UserNameField.text!, password: PasswordField.text!) { (user, error) in
-            let eduEmail = self.UserNameField.text
-            let endInEdu = eduEmail?.hasSuffix("wustl.edu")
-            
-            if endInEdu == true {
-                
-                FIRAuth.auth()?.createUser(withEmail: self.UserNameField.text!, password: self.PasswordField.text!, completion: {
-                    user, error in
-                    
-                    /*if error != nil{
-                        let alert = UIAlertController(title: "User exists.", message: "Please use another email or sign in.", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                        print(error);
-                        print("Email has been used, try a different one")
-                    }else{*/
-                        
-                        FIRAuth.auth()?.currentUser!.sendEmailVerification(completion: { (error) in
-                        })
-                        
-                        
-                        let alert = UIAlertController(title: "Account Created", message: "Please verify your email by confirming the sent link.", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                        print("This is a college email and user is created")
-                        
-                   // }
-                    
-                    
-                })
-                
-                
-            }else{
-                self.showAlert()
-            }
-        }
- */
-        if UserNameField.text == "" {
+              if UserNameField.text == "" {
             let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -101,12 +64,6 @@ class LoginViewController: UIViewController {
                     let alert = UIAlertController(title: "User exists.", message: "Please use another email or sign in.", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
-                   // let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
-                    //let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                   // alertController.addAction(defaultAction)
-                    
-                   // self.present(alertController, animated: true, completion: nil)
                 }
             }
         }
@@ -128,6 +85,7 @@ class LoginViewController: UIViewController {
                     self.present(alertVC, animated: true, completion: nil)
                 } else {
                     print ("Email verified. Signing in...")
+                    self.performSegue(withIdentifier: "conditionalSegue", sender: self)
                 }
             }
         }
