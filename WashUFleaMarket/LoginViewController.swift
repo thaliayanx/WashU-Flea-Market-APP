@@ -84,24 +84,34 @@ class LoginViewController: UIViewController {
             FIRAuth.auth()?.createUser(withEmail: UserNameField.text!, password: PasswordField.text!) { (user, error) in
                 
                 if error == nil {
-                    print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
+                    FIRAuth.auth()?.currentUser!.sendEmailVerification(completion: { (error) in
+                    })
                     
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    let alert = UIAlertController(title: "Account Created", message: "Please verify your email by confirming the sent link.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    print("This is a college email and user is created")
+
+                    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                   // self.present(vc!, animated: true, completion: nil)
                     
                 }
                 else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "User exists.", message: "Please use another email or sign in.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                   // let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
+                    //let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                   // alertController.addAction(defaultAction)
                     
-                    self.present(alertController, animated: true, completion: nil)
+                   // self.present(alertController, animated: true, completion: nil)
                 }
             }
         }
     }
+    
     @IBAction func SignIn(_ sender: Any) {
         FIRAuth.auth()?.signIn(withEmail: UserNameField.text!, password: PasswordField.text!) { (user, error) in
             if let user = FIRAuth.auth()?.currentUser {
