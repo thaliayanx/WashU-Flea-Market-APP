@@ -29,8 +29,10 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         UserDefaults.standard.set([], forKey: "favoriteMovie")
         UserDefaults.standard.synchronize()
     }
+    
+    
+    
     override func viewDidLoad() {
-        
         indicator.center=view.center
         notFound.text="No Results"
         notFound.font=UIFont(name: notFound.font!.fontName, size: 20)
@@ -38,7 +40,6 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         self.title = "Goodies"
         self.view.addSubview(searchBar)
         self.searchBar.delegate = self
-        print("fetch data")
         self.view.addSubview(indicator)
         //notFound.removeFromSuperview()
         //var json:JSON = JSON("")
@@ -49,16 +50,16 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
          }
          else{*/
         ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
-            print("kkkkkk\(snapshot.childrenCount)") // I got the expected number of items
             for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let itemValue = rest.value as! Dictionary<String, AnyObject>
-                let name = itemValue["name"] as? String ?? ""
+                let name = itemValue["title"] as? String ?? ""
                 let price = itemValue["price"] as? String ?? ""
-                let image = itemValue["image"] as? String ?? ""
+                let image = itemValue["image1"] as? String ?? ""
+                let category = itemValue["category"] as? String ?? ""
+                let seller = itemValue["seller"] as? String ?? ""
                 
                 
-                self.theData.append(Item(name:name,url:image,price:price))
-                print("thedatacount=0?!bukenneng\(self.theData.count)")
+                self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller))
                 self.collectionView.reloadData()
             }
             // ...
@@ -68,6 +69,32 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         super.viewDidLoad()
     }
     
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.theData.removeAll()
+        ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                let itemValue = rest.value as! Dictionary<String, AnyObject>
+                let name = itemValue["title"] as? String ?? ""
+                let price = itemValue["price"] as? String ?? ""
+                let image = itemValue["image1"] as? String ?? ""
+                let category = itemValue["category"] as? String ?? ""
+                let seller = itemValue["seller"] as? String ?? ""
+                
+                
+                self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller))
+                self.collectionView.reloadData()
+            }
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
+        self.collectionView.reloadData()
+    }
+
    /* @IBAction func yearFiltered(_ sender: UISlider) {
         if theDataTemp.count==0 {
             return
@@ -125,7 +152,6 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     }
     
     func setupCollectionView(){
-        print("setup")
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: 110, height: 150)
@@ -141,12 +167,10 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     }
     
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print ("jgg\(theData.count)")
         return theData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(1);
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         cell.backgroundColor = UIColor.clear
             cell.textLabel!.text = theData[indexPath.item].name

@@ -24,6 +24,11 @@
 		4EDB64A41E6CE0A80000D7F3 /* Detailed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB64A31E6CE0A80000D7F3 /* Detailed.xib */; };
 		7AC7A61CD369CC435DF5725F /* Pods_WashUFleaMarketUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96ACA85B86A7A1D36E1303C6 /* Pods_WashUFleaMarketUITests.framework */; };
 		B993B96873137CAF9BB41BB7 /* Pods_WashUFleaMarketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5469044A579C570F13DAAB6 /* Pods_WashUFleaMarketTests.framework */; };
+		E825F19A1E96D85F00356A61 /* 1491527458_house.png in Resources */ = {isa = PBXBuildFile; fileRef = E825F1991E96D85F00356A61 /* 1491527458_house.png */; };
+		E825F19C1E96D8D000356A61 /* 1491527574_add.png in Resources */ = {isa = PBXBuildFile; fileRef = E825F19B1E96D8D000356A61 /* 1491527574_add.png */; };
+		E825F19E1E96D92500356A61 /* 1491527658_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = E825F19D1E96D92500356A61 /* 1491527658_plus.png */; };
+		E825F1A01E96D96200356A61 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E825F19F1E96D96200356A61 /* UploadViewController.swift */; };
+		E825F1A21E96D97300356A61 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E825F1A11E96D97300356A61 /* HomeViewController.swift */; };
 		E8DB2E9E1E6CE97400744919 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2E9D1E6CE97400744919 /* GoogleService-Info.plist */; };
 		E8DB2EA11E6CEBC000744919 /* 1476404080_38.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */; };
 		E8DB2EA21E6CEBC000744919 /* imovie-ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */; };
@@ -84,6 +89,11 @@
 		93A310F7511445BAF2238572 /* Pods-WashUFleaMarketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashUFleaMarketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WashUFleaMarketUITests/Pods-WashUFleaMarketUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96ACA85B86A7A1D36E1303C6 /* Pods_WashUFleaMarketUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WashUFleaMarketUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5469044A579C570F13DAAB6 /* Pods_WashUFleaMarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WashUFleaMarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E825F1991E96D85F00356A61 /* 1491527458_house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1491527458_house.png; sourceTree = "<group>"; };
+		E825F19B1E96D8D000356A61 /* 1491527574_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1491527574_add.png; sourceTree = "<group>"; };
+		E825F19D1E96D92500356A61 /* 1491527658_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1491527658_plus.png; sourceTree = "<group>"; };
+		E825F19F1E96D96200356A61 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		E825F1A11E96D97300356A61 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E8DB2E9D1E6CE97400744919 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1476404080_38.png; sourceTree = "<group>"; };
 		E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imovie-ios-icon.png"; sourceTree = "<group>"; };
@@ -151,7 +161,10 @@
 			isa = PBXGroup;
 			children = (
 				E8DB2E9F1E6CEBC000744919 /* 1476404080_38.png */,
+				E825F19D1E96D92500356A61 /* 1491527658_plus.png */,
 				E8F07B161E8B00480090C3B6 /* Settings-50.png */,
+				E825F19B1E96D8D000356A61 /* 1491527574_add.png */,
+				E825F1991E96D85F00356A61 /* 1491527458_house.png */,
 				E8F07B181E8B00F00090C3B6 /* 1490751411_Setting.png */,
 				E8F07B1A1E8B013A0090C3B6 /* 1490751482_Setting.png */,
 				E8F07B201E8B0C300090C3B6 /* login.jpg */,
@@ -174,6 +187,8 @@
 				4EDB64A31E6CE0A80000D7F3 /* Detailed.xib */,
 				F6E244D01E89924800FB864D /* LoginViewController.swift */,
 				E8F07B1E1E8B02DB0090C3B6 /* SettingViewController.swift */,
+				E825F19F1E96D96200356A61 /* UploadViewController.swift */,
+				E825F1A11E96D97300356A61 /* HomeViewController.swift */,
 			);
 			path = WashUFleaMarket;
 			sourceTree = "<group>";
@@ -344,9 +359,12 @@
 				E8F07B1D1E8B01A20090C3B6 /* 1490751591_Cart.png in Resources */,
 				E8DB2EA11E6CEBC000744919 /* 1476404080_38.png in Resources */,
 				4EDB646D1E6CDD650000D7F3 /* Assets.xcassets in Resources */,
+				E825F19E1E96D92500356A61 /* 1491527658_plus.png in Resources */,
 				4EDB64941E6CDD890000D7F3 /* Main.storyboard in Resources */,
 				E8F07B191E8B00F00090C3B6 /* 1490751411_Setting.png in Resources */,
 				E8F07B171E8B00480090C3B6 /* Settings-50.png in Resources */,
+				E825F19C1E96D8D000356A61 /* 1491527574_add.png in Resources */,
+				E825F19A1E96D85F00356A61 /* 1491527458_house.png in Resources */,
 				E8DB2E9E1E6CE97400744919 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6E244D11E89924800FB864D /* LoginViewController.swift in Sources */,
+				E825F1A01E96D96200356A61 /* UploadViewController.swift in Sources */,
 				4EDB649C1E6CDF760000D7F3 /* FavoriteController.swift in Sources */,
 				4EDB649A1E6CDF180000D7F3 /* Item.swift in Sources */,
 				4EDB64681E6CDD650000D7F3 /* ViewController.swift in Sources */,
@@ -520,6 +539,7 @@
 				4EDB64A21E6CE07E0000D7F3 /* Detailed.swift in Sources */,
 				4EDB64A01E6CE01C0000D7F3 /* SwiftyJSON.swift in Sources */,
 				4EDB64661E6CDD650000D7F3 /* AppDelegate.swift in Sources */,
+				E825F1A21E96D97300356A61 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

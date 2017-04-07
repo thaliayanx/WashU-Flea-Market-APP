@@ -9,6 +9,7 @@ target 'WashUFleaMarket' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Database’
 	pod 'Firebase/Auth'
+	pod 'Firebase/Storage'
   target 'WashUFleaMarketTests' do
     inherit! :search_paths
     # Pods for testing
