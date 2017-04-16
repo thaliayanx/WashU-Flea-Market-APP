@@ -156,11 +156,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5tI-vj-3Re">
-                                <rect key="frame" x="127" y="250" width="121" height="29"/>
+                                <rect key="frame" x="116" y="250" width="143" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Purchase"/>
+                                    <segment title="Sales"/>
                                 </segments>
                                 <connections>
                                     <action selector="IndexChanged:" destination="T6o-vw-LAe" eventType="valueChanged" id="Fvd-SE-ZcG"/>
