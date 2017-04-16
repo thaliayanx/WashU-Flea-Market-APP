@@ -154,13 +154,69 @@
                     <view key="view" contentMode="scaleToFill" id="JqG-XM-9uh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5tI-vj-3Re">
+                                <rect key="frame" x="127" y="250" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="IndexChanged:" destination="T6o-vw-LAe" eventType="valueChanged" id="Fvd-SE-ZcG"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pc5-J5-i1m">
+                                <rect key="frame" x="67" y="286" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LIT-pF-6Qd">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rDR-dF-QNC">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="1491527458_house.png" selectedImage="1491527458_house.png" id="b12-07-gdc"/>
+                    <navigationItem key="navigationItem" id="iAz-gn-kul"/>
+                    <connections>
+                        <outlet property="SegmentedControl" destination="5tI-vj-3Re" id="Kak-KF-tr0"/>
+                        <outlet property="items" destination="Pc5-J5-i1m" id="wBU-br-4hs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ume-Zz-2Uj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="-409"/>
+            <point key="canvasLocation" x="74" y="-705"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Ezz-tP-49m">
+            <objects>
+                <navigationController id="t1Y-8q-a44" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="1491527458_house.png" id="imK-nE-v3z"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cEy-A3-ugq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="T6o-vw-LAe" kind="relationship" relationship="rootViewController" id="575-Ve-IJ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3b-Qp-dG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="-1046"/>
         </scene>
         <!--Upload-->
         <scene sceneID="1bf-7h-xi4">
@@ -291,7 +347,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="T6o-vw-LAe" kind="relationship" relationship="viewControllers" id="YoU-oX-wpg"/>
+                        <segue destination="t1Y-8q-a44" kind="relationship" relationship="viewControllers" id="d1Z-QG-VPh"/>
                         <segue destination="gjG-zH-Z86" kind="relationship" relationship="viewControllers" id="MRN-b2-dp4"/>
                         <segue destination="ETQ-wy-SgS" kind="relationship" relationship="viewControllers" id="uco-yc-dKm"/>
                         <segue destination="EyQ-dI-0Yt" kind="relationship" relationship="viewControllers" id="lB0-kS-NtD"/>

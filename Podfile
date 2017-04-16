@@ -10,6 +10,9 @@ target 'WashUFleaMarket' do
 	pod 'Firebase/Database’
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
+    	pod 'GoogleAPIClientForREST/Gmail', '~> 1.1.1'
+    	pod 'GTMOAuth2', '~> 1.1.4'
+
   target 'WashUFleaMarketTests' do
     inherit! :search_paths
     # Pods for testing

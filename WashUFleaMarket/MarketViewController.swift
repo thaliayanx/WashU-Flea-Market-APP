@@ -18,6 +18,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     var theData:[Item] = []
     //var theData:[Item]=[]
     var theDataTemp:[Item]=[]
+    var imageData:[UIImage]=[]
     var theImageCache:[UIImage]=[]
     var collectionView: UICollectionView!
     var movieTitle:String=""
@@ -49,23 +50,23 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
          notFound.bringSubview(toFront: self.view)
          }
          else{*/
-        ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
-            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                let itemValue = rest.value as! Dictionary<String, AnyObject>
-                let name = itemValue["title"] as? String ?? ""
-                let price = itemValue["price"] as? String ?? ""
-                let image = itemValue["image1"] as? String ?? ""
-                let category = itemValue["category"] as? String ?? ""
-                let seller = itemValue["seller"] as? String ?? ""
-                
-                
-                self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller))
-                self.collectionView.reloadData()
-            }
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+//        ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+//            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+//                let itemValue = rest.value as! Dictionary<String, AnyObject>
+//                let name = itemValue["title"] as? String ?? ""
+//                let price = itemValue["price"] as? String ?? ""
+//                let image = itemValue["image1"] as? String ?? ""
+//                let category = itemValue["category"] as? String ?? ""
+//                let seller = itemValue["seller"] as? String ?? ""
+//                
+//                
+//                self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller))
+//                self.collectionView.reloadData()
+//            }
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
         super.viewDidLoad()
     }
     
@@ -77,16 +78,21 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
             for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let itemValue = rest.value as! Dictionary<String, AnyObject>
-                let name = itemValue["title"] as? String ?? ""
-                let price = itemValue["price"] as? String ?? ""
-                let image = itemValue["image1"] as? String ?? ""
-                let category = itemValue["category"] as? String ?? ""
-                let seller = itemValue["seller"] as? String ?? ""
                 
+                let status = itemValue["status"] as? String ?? ""
+                if (status=="forsale") {
+                    let name = itemValue["title"] as? String ?? ""
+                    let price = itemValue["price"] as? String ?? ""
+                    let image = itemValue["image1"] as? String ?? ""
+                    let category = itemValue["category"] as? String ?? ""
+                    let seller = itemValue["seller"] as? String ?? ""
+                    let id = rest.key
                 
-                self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller))
-                self.collectionView.reloadData()
+                    self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller, id: id))
+                }
             }
+            self.collectionView.reloadData()
+
             // ...
         }) { (error) in
             print(error.localizedDescription)
@@ -125,26 +131,39 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         return num1 < num2
     }
     
-    /*func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        notFound.bringSubview(toFront: self.view)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+       // notFound.bringSubview(toFront: self.view)
+
+        
         if searchBar.text != nil{
-            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async{
-                self.theData.removeAll()
-                self.theImageCache.removeAll()
-                self.movieTitle=searchBar.text!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                DispatchQueue.main.async{
-                    //self.view.addSubview(self.indicator)
-                    self.indicator.startAnimating()
+            self.theData.removeAll()
+            ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+                for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                    let itemValue = rest.value as! Dictionary<String, AnyObject>
+                    
+                    let status = itemValue["status"] as? String ?? ""
+                    if (status=="forsale") {
+                        let name = itemValue["title"] as? String ?? ""
+                        let price = itemValue["price"] as? String ?? ""
+                        let image = itemValue["image1"] as? String ?? ""
+                        let category = itemValue["category"] as? String ?? ""
+                        let seller = itemValue["seller"] as? String ?? ""
+                        let id = rest.key
+                        if(name.contains(searchBar.text!)){
+                        self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller, id: id))
+                        }
+                    }
                 }
-                self.fetchDataForCollectionView()
-                self.cacheImages()
-                DispatchQueue.main.async{
-                    self.collectionView.reloadData()
-                    self.indicator.stopAnimating()
-                }
+                self.collectionView.reloadData()
+                
+                // ...
+            }) { (error) in
+                print(error.localizedDescription)
             }
+            
+            self.collectionView.reloadData()
         }
-    }*/
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -184,12 +203,10 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailedVC = Detailed(nibName: "Detailed", bundle: nil)
         detailedVC.name = theData[indexPath.item].name
-        let url = URL(string: theData[indexPath.item].url)
-        let data = try? Data(contentsOf: url!)
-        let image = UIImage(data: data!)
-        detailedVC.image = image
-        //detailedVC.score = theData[indexPath.item].released
-        //detailedVC.id=theData[indexPath.item].id
+        detailedVC.id = theData[indexPath.item].id
+        
+
+
         navigationController?.pushViewController(detailedVC, animated: true)
     }
     

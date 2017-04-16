@@ -57,7 +57,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
         let productDescription=Description.text
         let productPrice=Price.text
         
-        let postInfo = ["title": productTitle, "price": productPrice, "image1":"", "image2":"", "image3":"", "description":productDescription, "category":self.category, "seller": FIRAuth.auth()?.currentUser?.uid]
+        
+        let postInfo = ["title": productTitle, "price": productPrice, "image1":"", "image2":"", "image3":"", "description":productDescription, "category":self.category, "seller": FIRAuth.auth()?.currentUser?.uid, "anonymous": "false"]
         
         let reference  = self.ref.child("items").childByAutoId()
         
@@ -93,11 +94,164 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
         }
             
         }
+        
+        if let upload2 = image2.image {
+            data = UIImageJPEGRepresentation(upload2, 0.8)! as NSData
             
+            // set upload path
+            let filePath = "\(childautoID)/image1"
+            print(filePath)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpg"
+            self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    
+                    //store downloadURL
+                    let downloadURL = metaData!.downloadURL()!.absoluteString
+                    print(downloadURL)
+                    //store downloadURL at database
+                    
+                    self.ref.child("items/\(childautoID)/image2").setValue(downloadURL)
+                }
+                
+            }
+            
+        }
+        
+        if let upload3 = image3.image {
+            data = UIImageJPEGRepresentation(upload3, 0.8)! as NSData
+            
+            // set upload path
+            let filePath = "\(childautoID)/image1"
+            print(filePath)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpg"
+            self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    
+                    //store downloadURL
+                    let downloadURL = metaData!.downloadURL()!.absoluteString
+                    print(downloadURL)
+                    //store downloadURL at database
+                    
+                    self.ref.child("items/\(childautoID)/image3").setValue(downloadURL)
+                }
+                
+            }
+            
+        }
+        
         tabBarController?.selectedIndex=1
         
     }
+
+    
     @IBAction func Submit(_ sender: Any) {
+    
+        let productTitle=TitleField.text
+        let productDescription=Description.text
+        let productPrice=Price.text
+        
+        
+        let postInfo = ["title": productTitle, "price": productPrice, "image1":"", "image2":"", "image3":"", "description":productDescription, "category":self.category, "seller": FIRAuth.auth()?.currentUser?.uid, "anonymous": "true"]
+        
+        let reference  = self.ref.child("items").childByAutoId()
+        
+        reference.setValue(postInfo)
+        let childautoID = reference.key
+        
+        
+        
+        
+        var data = NSData()
+        if let upload1 = image1.image {
+            data = UIImageJPEGRepresentation(upload1, 0.8)! as NSData
+            
+            // set upload path
+            let filePath = "\(childautoID)/image1"
+            print(filePath)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpg"
+            self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    
+                    //store downloadURL
+                    let downloadURL = metaData!.downloadURL()!.absoluteString
+                    print(downloadURL)
+                    //store downloadURL at database
+                    
+                    self.ref.child("items/\(childautoID)/image1").setValue(downloadURL)
+                }
+                
+            }
+            
+        }
+        
+        if let upload2 = image2.image {
+            data = UIImageJPEGRepresentation(upload2, 0.8)! as NSData
+            
+            // set upload path
+            let filePath = "\(childautoID)/image1"
+            print(filePath)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpg"
+            self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    
+                    //store downloadURL
+                    let downloadURL = metaData!.downloadURL()!.absoluteString
+                    print(downloadURL)
+                    //store downloadURL at database
+                    
+                    self.ref.child("items/\(childautoID)/image2").setValue(downloadURL)
+                }
+                
+            }
+            
+        }
+        
+        if let upload3 = image3.image {
+            data = UIImageJPEGRepresentation(upload3, 0.8)! as NSData
+            
+            // set upload path
+            let filePath = "\(childautoID)/image1"
+            print(filePath)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpg"
+            self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    
+                    //store downloadURL
+                    let downloadURL = metaData!.downloadURL()!.absoluteString
+                    print(downloadURL)
+                    //store downloadURL at database
+                    
+                    self.ref.child("items/\(childautoID)/image3").setValue(downloadURL)
+                }
+                
+            }
+            
+        }
+        
+        tabBarController?.selectedIndex=1
+
+        
+        
     }
     
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
