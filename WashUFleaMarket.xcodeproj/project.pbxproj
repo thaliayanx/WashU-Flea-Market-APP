@@ -42,6 +42,7 @@
 		E8F07B1D1E8B01A20090C3B6 /* 1490751591_Cart.png in Resources */ = {isa = PBXBuildFile; fileRef = E8F07B1C1E8B01A20090C3B6 /* 1490751591_Cart.png */; };
 		E8F07B1F1E8B02DB0090C3B6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F07B1E1E8B02DB0090C3B6 /* SettingViewController.swift */; };
 		E8F07B211E8B0C300090C3B6 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8F07B201E8B0C300090C3B6 /* login.jpg */; };
+		E8F8A5631EA9A8EB00A8B551 /* Users-User-Male-2-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8F8A5621EA9A8EB00A8B551 /* Users-User-Male-2-icon.png */; };
 		F6E244D11E89924800FB864D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E244D01E89924800FB864D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		E8F07B1C1E8B01A20090C3B6 /* 1490751591_Cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1490751591_Cart.png; sourceTree = "<group>"; };
 		E8F07B1E1E8B02DB0090C3B6 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E8F07B201E8B0C300090C3B6 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login.jpg; sourceTree = "<group>"; };
+		E8F8A5621EA9A8EB00A8B551 /* Users-User-Male-2-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Users-User-Male-2-icon.png"; sourceTree = "<group>"; };
 		F6E244D01E89924800FB864D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 				E8F07B1A1E8B013A0090C3B6 /* 1490751482_Setting.png */,
 				E8F07B201E8B0C300090C3B6 /* login.jpg */,
 				E8DB2EA31E6D022700744919 /* Shopping Cart Loaded-50.png */,
+				E8F8A5621EA9A8EB00A8B551 /* Users-User-Male-2-icon.png */,
 				E8DB2EA01E6CEBC000744919 /* imovie-ios-icon.png */,
 				E8F07B1C1E8B01A20090C3B6 /* 1490751591_Cart.png */,
 				4EDB64651E6CDD650000D7F3 /* AppDelegate.swift */,
@@ -371,6 +374,7 @@
 				4EDB646D1E6CDD650000D7F3 /* Assets.xcassets in Resources */,
 				E825F19E1E96D92500356A61 /* 1491527658_plus.png in Resources */,
 				4EDB64941E6CDD890000D7F3 /* Main.storyboard in Resources */,
+				E8F8A5631EA9A8EB00A8B551 /* Users-User-Male-2-icon.png in Resources */,
 				E8F07B191E8B00F00090C3B6 /* 1490751411_Setting.png in Resources */,
 				E8F07B171E8B00480090C3B6 /* Settings-50.png in Resources */,
 				E825F19C1E96D8D000356A61 /* 1491527574_add.png in Resources */,

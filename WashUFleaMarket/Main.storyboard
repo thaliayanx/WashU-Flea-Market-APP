@@ -155,9 +155,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5tI-vj-3Re">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5tI-vj-3Re">
                                 <rect key="frame" x="116" y="250" width="143" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Purchase"/>
                                     <segment title="Sales"/>
@@ -166,9 +165,8 @@
                                     <action selector="IndexChanged:" destination="T6o-vw-LAe" eventType="valueChanged" id="Fvd-SE-ZcG"/>
                                 </connections>
                             </segmentedControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pc5-J5-i1m">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pc5-J5-i1m">
                                 <rect key="frame" x="67" y="286" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LIT-pF-6Qd">
                                     <size key="itemSize" width="50" height="50"/>
@@ -187,19 +185,46 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Users-User-Male-2-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="z3q-bq-V6A">
+                                <rect key="frame" x="116" y="92" width="143" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="KM4-KV-EJf"/>
+                                    <constraint firstAttribute="width" constant="143" id="Zc5-ii-J9d"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRY-Mb-0dA">
+                                <rect key="frame" x="166" y="221" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wRY-Mb-0dA" firstAttribute="top" secondItem="z3q-bq-V6A" secondAttribute="bottom" constant="1" id="Gau-Rx-X6x"/>
+                            <constraint firstItem="5tI-vj-3Re" firstAttribute="top" secondItem="wRY-Mb-0dA" secondAttribute="bottom" constant="8" symbolic="YES" id="QFH-Ns-178"/>
+                            <constraint firstItem="z3q-bq-V6A" firstAttribute="centerX" secondItem="wRY-Mb-0dA" secondAttribute="centerX" id="R7F-FC-8fW"/>
+                            <constraint firstItem="Pc5-J5-i1m" firstAttribute="leading" secondItem="JqG-XM-9uh" secondAttribute="leadingMargin" constant="51" id="TNc-Rh-Cfa"/>
+                            <constraint firstItem="z3q-bq-V6A" firstAttribute="top" secondItem="7HG-lE-BLU" secondAttribute="bottom" constant="28" id="Zib-z5-mYH"/>
+                            <constraint firstItem="Pc5-J5-i1m" firstAttribute="centerX" secondItem="wRY-Mb-0dA" secondAttribute="centerX" id="aZ4-JA-QeZ"/>
+                            <constraint firstItem="TIP-2c-FDh" firstAttribute="top" secondItem="Pc5-J5-i1m" secondAttribute="bottom" constant="204" id="fOU-8G-x3V"/>
+                            <constraint firstItem="Pc5-J5-i1m" firstAttribute="top" secondItem="5tI-vj-3Re" secondAttribute="bottom" constant="8" symbolic="YES" id="tc5-6D-dWj"/>
+                            <constraint firstItem="Pc5-J5-i1m" firstAttribute="centerX" secondItem="5tI-vj-3Re" secondAttribute="centerX" id="vfq-6N-xJA"/>
+                            <constraint firstItem="z3q-bq-V6A" firstAttribute="centerX" secondItem="JqG-XM-9uh" secondAttribute="centerX" id="zaG-RE-SJr"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="1491527458_house.png" selectedImage="1491527458_house.png" id="b12-07-gdc"/>
                     <navigationItem key="navigationItem" id="iAz-gn-kul"/>
                     <connections>
+                        <outlet property="Name" destination="wRY-Mb-0dA" id="WwQ-6d-cDH"/>
                         <outlet property="SegmentedControl" destination="5tI-vj-3Re" id="Kak-KF-tr0"/>
                         <outlet property="items" destination="Pc5-J5-i1m" id="wBU-br-4hs"/>
+                        <outlet property="userPhoto" destination="z3q-bq-V6A" id="pQM-ef-QJp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ume-Zz-2Uj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="-705"/>
+            <point key="canvasLocation" x="72.799999999999997" y="-705.69715142428788"/>
         </scene>
         <!--Home-->
         <scene sceneID="Ezz-tP-49m">
@@ -412,12 +437,17 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="22H-gf-63K">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iyV-hQ-cn8" firstAttribute="leading" secondItem="cRA-vN-0hy" secondAttribute="leading" id="Ahk-h7-L08"/>
+                            <constraint firstItem="22H-gf-63K" firstAttribute="centerX" secondItem="iyV-hQ-cn8" secondAttribute="centerX" id="K0f-jJ-vL5"/>
                             <constraint firstItem="iyV-hQ-cn8" firstAttribute="centerX" secondItem="cRA-vN-0hy" secondAttribute="centerX" id="Lmb-Tt-CsG"/>
                             <constraint firstAttribute="trailing" secondItem="iyV-hQ-cn8" secondAttribute="trailing" id="OPb-Nq-4pX"/>
+                            <constraint firstItem="22H-gf-63K" firstAttribute="centerY" secondItem="cRA-vN-0hy" secondAttribute="centerY" id="SlJ-WR-kd3"/>
                             <constraint firstItem="iyV-hQ-cn8" firstAttribute="top" secondItem="J0R-Uk-fIK" secondAttribute="bottom" id="Xne-ym-1y5"/>
                         </constraints>
                     </view>
@@ -444,6 +474,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="clearFavorite" destination="7Td-Be-98e" id="2YY-Zu-WRZ"/>
+                        <outlet property="indicator" destination="22H-gf-63K" id="0oa-0n-Jmm"/>
                         <outlet property="searchBar" destination="iyV-hQ-cn8" id="w2e-Rx-CdL"/>
                         <outlet property="yearSlider" destination="XVl-vL-I1R" id="IiH-zO-frU"/>
                     </connections>
@@ -458,6 +489,7 @@
         <image name="1490751591_Cart.png" width="32" height="32"/>
         <image name="1491527458_house.png" width="32" height="32"/>
         <image name="1491527658_plus.png" width="32" height="32"/>
+        <image name="Users-User-Male-2-icon.png" width="256" height="256"/>
         <image name="login.jpg" width="1242" height="2208"/>
     </resources>
 </document>

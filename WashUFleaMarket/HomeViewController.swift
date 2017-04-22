@@ -12,13 +12,20 @@ import FirebaseCore
 import FirebaseAnalytics
 import FirebaseDatabase
 
-class HomeViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class HomeViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     var ref: FIRDatabaseReference! = FIRDatabase.database().reference()
+    let storageRef = FIRStorage.storage().reference()
+    let currentUser=FIRAuth.auth()?.currentUser?.uid
 
+
+    var tappedImage:UIImageView!
+    let imagePicker = UIImagePickerController()
     @IBOutlet weak var items: UICollectionView!
     var theData:[Item] = []
     @IBOutlet weak var SegmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var Name: UILabel!
+    @IBOutlet weak var userPhoto: UIImageView!
     @IBAction func IndexChanged(_ sender: UISegmentedControl) {
         
         
@@ -90,6 +97,18 @@ class HomeViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         items.backgroundColor = UIColor.white
         items.dataSource=self
         items.register(MyCell.self, forCellWithReuseIdentifier: "cell")
+        
+        imagePicker.delegate = self
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        userPhoto.isUserInteractionEnabled = true
+        userPhoto.addGestureRecognizer(tapGestureRecognizer1)
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+
+        
+        self.Name.text=FIRAuth.auth()?.currentUser?.email
+        
+        
+        
         ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
             for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let itemValue = rest.value as! Dictionary<String, AnyObject>
@@ -110,6 +129,27 @@ class HomeViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             self.items.reloadData()
 
             // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        ref.child("userPhoto").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            
+            
+            if let imageUrl = value?["\(self.currentUser)"] {
+            
+                if (String(describing: imageUrl) != "") {
+                    let url = URL(string: imageUrl as! String)
+                    let data = try? Data(contentsOf: url!)
+                    let image = UIImage(data: data!)
+                    self.userPhoto.image=image
+                } else {
+                    self.userPhoto.image=UIImage(named: "Users-User-Male-2-icon.png")
+                }
+            }
+
+
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -144,6 +184,64 @@ class HomeViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         navigationController?.pushViewController(detailedVC, animated: true)
     }
     
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+        // Your action
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            tappedImage.contentMode = .scaleAspectFit
+            tappedImage.image = pickedImage
+        }
+        
+        
+        var data = NSData()
+        if let upload1 = userPhoto.image {
+            data = UIImageJPEGRepresentation(upload1, 0.8)! as NSData
+
+            // set upload path
+            let filePath = "\(currentUser)/userphoto"
+            print(filePath)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpg"
+            self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    
+                    //store downloadURL
+                    let downloadURL = metaData!.downloadURL()!.absoluteString
+                    print(downloadURL)
+                    //store downloadURL at database
+                    
+                    //let postInfo =  ["\(self.currentUser)": downloadURL]
+                    
+                    
+                    self.ref.child("userPhoto").child("\(self.currentUser)" as String).setValue(downloadURL)
+                }
+                
+            }
+            
+        }
+
+        
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+
     
 }
 

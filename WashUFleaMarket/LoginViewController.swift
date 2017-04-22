@@ -17,7 +17,8 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     @IBOutlet weak var UserNameField: UITextField!
     @IBOutlet weak var PasswordField: UITextField!
-    
+    var ref: FIRDatabaseReference!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +86,13 @@ class LoginViewController: UIViewController {
                     self.present(alertVC, animated: true, completion: nil)
                 } else {
                     print ("Email verified. Signing in...")
+                    
+
+
+                    
+                    
                     self.performSegue(withIdentifier: "conditionalSegue", sender: self)
+                    
                 }
             }
         }

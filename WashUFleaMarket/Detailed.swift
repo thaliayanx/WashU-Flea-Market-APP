@@ -16,7 +16,7 @@
     var name: String!
     var id:String!
     var theData:[UIImage] = []
-    
+    var seller:String!
     @IBOutlet weak var theLabel: UILabel!
     
     var anonymous = ""
@@ -33,7 +33,10 @@
         theLabel.text = name
         
         self.navigationItem.title = name
-        
+        sellerLable.sizeToFit()
+        descriptionLabel.sizeToFit()
+        priceLabel.sizeToFit()
+
         images.delegate = self
         images.backgroundColor = UIColor.white
         images.dataSource=self
@@ -53,17 +56,21 @@
             let image1 = value?["image1"] as? String ?? ""
             let image2 = value?["image2"] as? String ?? ""
             let image3 = value?["image3"] as? String ?? ""
-            let seller = value?["seller"] as? String ?? ""
+            let seller = value?["sellerEmail"] as? String ?? ""
             let anonymous = value?["anonymous"] as? String ?? ""
             
             
-            self.priceLabel.text = price
+
+            
+            self.priceLabel.text = "$\(price)"
             self.descriptionLabel.text = description
             if (anonymous == "false") {
-                self.sellerLable.text = seller
+                self.sellerLable.text=seller
             } else {
                 self.sellerLable.text = "Anonymous"
             }
+
+            
             
             if (image1 != "") {
                 let url = URL(string: image1)
@@ -92,48 +99,6 @@
             self.images.reloadData()
             
             
-            /*for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
-             let itemValue = rest.value as! Dictionary<String, AnyObject>
-             let id = rest.key
-             let price = itemValue["price"] as? String ?? ""
-             let description = itemValue["description"] as? String ?? ""
-             let image1 = itemValue["image1"] as? String ?? ""
-             let image2 = itemValue["image2"] as? String ?? ""
-             let image3 = itemValue["image3"] as? String ?? ""
-             let seller = itemValue["seller"] as? String ?? ""
-             let anonymous = itemValue["anonymous"] as? String ?? ""
-             
-             detailedVC.priceLabel.text = price
-             detailedVC.descriptionLabel.text = description
-             detailedVC.id = id
-             detailedVC.sellerLable.text = seller
-             detailedVC.anonymous = anonymous
-             
-             if (image1 != "") {
-             let url = URL(string: image1)
-             let data = try? Data(contentsOf: url!)
-             let image = UIImage(data: data!)
-             self.imageData.append(image!)
-             }
-             
-             if (image2 != "") {
-             let url = URL(string: image2)
-             let data = try? Data(contentsOf: url!)
-             let image = UIImage(data: data!)
-             self.imageData.append(image!)
-             }
-             
-             if (image3 != "") {
-             let url = URL(string: image3)
-             let data = try? Data(contentsOf: url!)
-             let image = UIImage(data: data!)
-             self.imageData.append(image!)
-             }
-             
-             print("number of pics when fetching data is \(self.imageData.count)")
-             
-             }*/
-            // ...
         }) { (error) in
             print(error.localizedDescription)
         }

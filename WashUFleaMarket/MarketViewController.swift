@@ -11,12 +11,13 @@ import FirebaseDatabase
 
 class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,UISearchBarDelegate {
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+
+    
     @IBOutlet weak var clearFavorite: UIButton!
-    var indicator: UIActivityIndicatorView!=UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     @IBOutlet weak var yearSlider: UISlider!
     @IBOutlet weak var searchBar: UISearchBar!
     var theData:[Item] = []
-    //var theData:[Item]=[]
     var theDataTemp:[Item]=[]
     var imageData:[UIImage]=[]
     var theImageCache:[UIImage]=[]
@@ -34,6 +35,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     
     
     override func viewDidLoad() {
+
         indicator.center=view.center
         notFound.text="No Results"
         notFound.font=UIFont(name: notFound.font!.fontName, size: 20)
@@ -41,32 +43,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         self.title = "Goodies"
         self.view.addSubview(searchBar)
         self.searchBar.delegate = self
-        self.view.addSubview(indicator)
-        //notFound.removeFromSuperview()
-        //var json:JSON = JSON("")
-        //json=self.getJSON("http://www.omdbapi.com/?s=\(self.movieTitle)")
-        /*if json["Error"].stringValue=="Movie not found!"{
-         self.view.addSubview(self.notFound)
-         notFound.bringSubview(toFront: self.view)
-         }
-         else{*/
-//        ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
-//            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
-//                let itemValue = rest.value as! Dictionary<String, AnyObject>
-//                let name = itemValue["title"] as? String ?? ""
-//                let price = itemValue["price"] as? String ?? ""
-//                let image = itemValue["image1"] as? String ?? ""
-//                let category = itemValue["category"] as? String ?? ""
-//                let seller = itemValue["seller"] as? String ?? ""
-//                
-//                
-//                self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller))
-//                self.collectionView.reloadData()
-//            }
-//            // ...
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
+        indicator.isHidden=false
         super.viewDidLoad()
     }
     
@@ -74,58 +51,43 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.theData.removeAll()
-        ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
-            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                let itemValue = rest.value as! Dictionary<String, AnyObject>
-                
-                let status = itemValue["status"] as? String ?? ""
-                if (status=="forsale") {
-                    let name = itemValue["title"] as? String ?? ""
-                    let price = itemValue["price"] as? String ?? ""
-                    let image = itemValue["image1"] as? String ?? ""
-                    let category = itemValue["category"] as? String ?? ""
-                    let seller = itemValue["seller"] as? String ?? ""
-                    let id = rest.key
-                
-                    self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller, id: id))
-                }
-            }
-            self.collectionView.reloadData()
-
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-
-        self.collectionView.reloadData()
-    }
-
-   /* @IBAction func yearFiltered(_ sender: UISlider) {
-        if theDataTemp.count==0 {
-            return
-        }
-        else{
-            print(yearArray.count)
-            print(sender.value)
-            if(sender.value>=0){
-                let currentValue = yearArray[Int(round(sender.value))]
-                print(currentValue)
-                var filteredMovie:[Item]=[]
-                for movie2 in theDataTemp{
-                    if let year2=Int(movie2.released){
-                        if year2<=currentValue{
-                            filteredMovie.append(movie2)
-                        }
+        self.view.addSubview(self.indicator)
+        self.indicator.isHidden=false
+        self.indicator.startAnimating()
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async{
+            self.theData.removeAll()
+            self.ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+                for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                    let itemValue = rest.value as! Dictionary<String, AnyObject>
+                    
+                    let status = itemValue["status"] as? String ?? ""
+                    if (status=="forsale") {
+                        let name = itemValue["title"] as? String ?? ""
+                        let price = itemValue["price"] as? String ?? ""
+                        let image = itemValue["image1"] as? String ?? ""
+                        let category = itemValue["category"] as? String ?? ""
+                        let seller = itemValue["seller"] as? String ?? ""
+                        let id = rest.key
+                        
+                        self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller, id: id))
                     }
                 }
-                theData=filteredMovie
-                theImageCache.removeAll()
-                cacheImages()
+                self.collectionView.reloadData()
+                
+                // ...
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            DispatchQueue.main.async{
+                self.collectionView.reloadData()
+                self.indicator.stopAnimating()
+                self.indicator.isHidden=true
             }
         }
-        collectionView.reloadData()
-    }*/
+
+        
+    }
+
     
     func sortFunc(_ num1: Int, num2: Int) -> Bool {
         return num1 < num2
@@ -209,26 +171,6 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
 
         navigationController?.pushViewController(detailedVC, animated: true)
     }
-    
-       /*func cacheImages() {
-        for item in theData {
-            let url = URL(string: item.url)
-            let data = try? Data(contentsOf: url!)
-            if data==nil {
-                let nullImage="https://www.wired.com/wp-content/uploads/2015/11/GettyImages-134367495.jpg"
-                let nullURL = URL(string: nullImage)
-                let data = try? Data(contentsOf: nullURL!)
-                let image = UIImage(data: data!)
-                self.theImageCache.append(image!)
-            }
-            else{
-                let image = UIImage(data: data!)
-                self.theImageCache.append(image!)
-            }
-        }
-        
-    }
-    */
 }
 
 
