@@ -28,12 +28,12 @@ class historyDetailViewController: UIViewController {
             
             let nametemp = value?["title"] as? String ?? ""
             let image1 = value?["image1"] as? String ?? ""
-            let buyer = value?["buyer"] as? String ?? ""
-            let seller = value?["seller"] as? String ?? ""
+            let buyer = value?["buyerEmail"] as? String ?? ""
+            let seller = value?["sellerEmail"] as? String ?? ""
             let status=value?["status"] as? String ?? ""
 
-            self.buyerinfo.text=buyer
-            self.sellerinfo.text=seller
+            self.buyerinfo.text="Buyer: \(buyer)"
+            self.sellerinfo.text="Seller: \(seller)"
             self.name.text = nametemp
             
             if (image1 != "") {

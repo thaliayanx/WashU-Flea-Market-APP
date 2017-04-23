@@ -113,6 +113,7 @@
     @IBAction func purchase(_ sender: UIButton) {
         self.ref.child("items").child(id).child("status").setValue("waitingForApproval")
         self.ref.child("items").child(id).child("buyer").setValue(FIRAuth.auth()?.currentUser?.uid)
+        self.ref.child("items").child(id).child("buyerEmail").setValue(FIRAuth.auth()?.currentUser?.email)
 
         let alertController = UIAlertController(title: "", message:
             "Unlike UA，we are not going to knock you down and drag u out.", preferredStyle: UIAlertControllerStyle.alert)

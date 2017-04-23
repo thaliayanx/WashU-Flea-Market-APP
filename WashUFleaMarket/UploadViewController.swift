@@ -79,9 +79,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
         metaData.contentType = "image/jpg"
         print("weishenmenibujinqu")
         self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
-            guard let metadata = metaData else {
+            guard metaData != nil else {
                 print("qianru")
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
                 return
             }
                 print("houru")
@@ -92,7 +92,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
                 //store downloadURL at database
                 
                 self.ref.child("items/\(childautoID)/image1").setValue(downloadURL)
-            
+                self.tabBarController?.selectedIndex=1
+
         }
             
         }
@@ -106,8 +107,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpg"
             self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
-                guard let metadata = metaData else {
-                    print(error?.localizedDescription)
+                guard metaData != nil else {
+                    print(error?.localizedDescription as Any)
                     return
                 }
                     //store downloadURL
@@ -130,8 +131,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpg"
             self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
-                guard let metadata = metaData else {
-                    print(error?.localizedDescription)
+                guard metaData != nil else {
+                    print(error?.localizedDescription as Any)
                     return
                 }
                     //store downloadURL
@@ -145,7 +146,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             
         }
         
-        tabBarController?.selectedIndex=1
         
     }
 
@@ -157,7 +157,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
         let productPrice=Price.text
         
         
-        let postInfo = ["title": productTitle, "price": productPrice, "image1":"", "image2":"", "image3":"", "description":productDescription,"status": "forsale", "category":self.category, "seller": FIRAuth.auth()?.currentUser?.uid, "anonymous": "true"]
+        let postInfo = ["title": productTitle, "price": productPrice, "image1":"", "image2":"", "image3":"", "description":productDescription,"status": "forsale", "category":self.category,"sellerEmail": FIRAuth.auth()?.currentUser?.email,  "seller": FIRAuth.auth()?.currentUser?.uid, "anonymous": "true"]
         
         let reference  = self.ref.child("items").childByAutoId()
         
@@ -177,8 +177,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpg"
             self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
-                guard let metadata = metaData else {
-                    print(error?.localizedDescription)
+                guard metaData != nil else {
+                    print(error?.localizedDescription as Any)
                     return
                 }
                     //store downloadURL
@@ -201,9 +201,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpg"
             self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
-                guard let metadata = metaData else {
+                guard metaData != nil else {
                     print("qianru")
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription as Any)
                     return
                 }
                     print("houru")
@@ -228,8 +228,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpg"
             self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
-                guard let metadata = metaData else {
-                    print(error?.localizedDescription)
+                guard metaData != nil else {
+                    print(error?.localizedDescription as Any)
                     return
                 }
                     //store downloadURL

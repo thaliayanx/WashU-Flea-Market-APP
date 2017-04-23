@@ -35,28 +35,32 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
 
         indicator.center=view.center
+        //indicator.hidesWhenStopped=true
         notFound.text="No Results"
         notFound.font=UIFont(name: notFound.font!.fontName, size: 20)
         setupCollectionView()
-        self.title = "Goodies"
+        indicator.bringSubview(toFront: self.view)
         self.view.addSubview(searchBar)
         self.searchBar.delegate = self
-        indicator.isHidden=false
-        super.viewDidLoad()
     }
-    
+
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.addSubview(self.indicator)
-        self.indicator.isHidden=false
-        self.indicator.startAnimating()
+        
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async{
+            DispatchQueue.main.async{
+                self.indicator.bringSubview(toFront: self.view)
+                self.indicator.startAnimating()
+                sleep(20)
+            }
             self.theData.removeAll()
             self.ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+                self.indicator.startAnimating()
                 for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
                     let itemValue = rest.value as! Dictionary<String, AnyObject>
                     
@@ -73,7 +77,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
                     }
                 }
                 self.collectionView.reloadData()
-                
+                //self.indicator.stopAnimating()
                 // ...
             }) { (error) in
                 print(error.localizedDescription)
@@ -81,7 +85,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
             DispatchQueue.main.async{
                 self.collectionView.reloadData()
                 self.indicator.stopAnimating()
-                self.indicator.isHidden=true
+                
             }
         }
 
@@ -95,11 +99,15 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
        // notFound.bringSubview(toFront: self.view)
+        self.view.bringSubview(toFront: indicator)
 
-        
+        self.indicator.startAnimating()
+
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async{
+        self.indicator.startAnimating()
         if searchBar.text != nil{
             self.theData.removeAll()
-            ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
                 for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
                     let itemValue = rest.value as! Dictionary<String, AnyObject>
                     
@@ -122,8 +130,15 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
             }) { (error) in
                 print(error.localizedDescription)
             }
+            DispatchQueue.main.async{
+                self.collectionView.reloadData()
+                //self.indicator.stopAnimating()
+
+
+            }
             
-            self.collectionView.reloadData()
+            }
+            
         }
     }
     
@@ -134,8 +149,8 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     
     func setupCollectionView(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 110, height: 150)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 150, right: 10)
+        layout.itemSize = CGSize(width: 330, height: 250)
         
         collectionView=UICollectionView(frame:view.frame.offsetBy(dx: 0, dy: 50), collectionViewLayout:layout)
         self.view.addSubview(collectionView)
@@ -143,7 +158,6 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         collectionView.backgroundColor = UIColor.white
         collectionView.dataSource=self
         collectionView.register(MyCell.self, forCellWithReuseIdentifier: "cell")
-        self.view.addSubview(indicator)
         notFound.bringSubview(toFront: self.view)
     }
     
@@ -154,7 +168,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         cell.backgroundColor = UIColor.clear
-            cell.textLabel!.text = theData[indexPath.item].name
+            cell.textLabel!.text = "$\(theData[indexPath.item].price) \(theData[indexPath.item].name)"
         let url = URL(string: theData[indexPath.item].url)
         let data = try? Data(contentsOf: url!)
             cell.imageView?.image = UIImage(data: data!)
