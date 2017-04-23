@@ -43,7 +43,7 @@
         images.register(MyCell1.self, forCellWithReuseIdentifier: "cell")
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 110, height: 150)
+        layout.itemSize = CGSize(width: 300, height: 200)
         images.collectionViewLayout=layout
     }
     

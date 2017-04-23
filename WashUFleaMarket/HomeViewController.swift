@@ -132,6 +132,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         }) { (error) in
             print(error.localizedDescription)
         }
+        self.items.reloadData()
+
         
         ref.child("userPhoto").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary

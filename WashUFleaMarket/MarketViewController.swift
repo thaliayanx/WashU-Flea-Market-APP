@@ -24,7 +24,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     var collectionView: UICollectionView!
     var movieTitle:String=""
     var notFound:UITextView=UITextView(frame:CGRect(x: 140, y: 300, width: 200, height: 200))
-    var yearArray:[Int]=[]
+    var priceArray:[Int]=[]
     var ref: FIRDatabaseReference! = FIRDatabase.database().reference()
     
     @IBAction func buttonClicked(_ sender: UIButton) {
@@ -32,6 +32,23 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         UserDefaults.standard.synchronize()
     }
     
+    @IBAction func priceFilter(_ sender: UISlider) {
+        
+        if theDataTemp.count==0 {
+            return
+        }
+        else{
+            print(sender.value)
+            var filteredItem:[Item]=[]
+            for item in theDataTemp{
+                if(String(sender.value)>=item.price){
+                    filteredItem.append(item)
+                }
+            }
+            theData=filteredItem
+        }
+        collectionView.reloadData()
+    }
     
     
     override func viewDidLoad() {
@@ -56,7 +73,6 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
             DispatchQueue.main.async{
                 self.indicator.bringSubview(toFront: self.view)
                 self.indicator.startAnimating()
-                sleep(20)
             }
             self.theData.removeAll()
             self.ref.child("items").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -74,6 +90,8 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
                         let id = rest.key
                         
                         self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller, id: id))
+                        self.theDataTemp = self.theData
+                        var
                     }
                 }
                 self.collectionView.reloadData()
@@ -121,6 +139,7 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
                         let id = rest.key
                         if(name.contains(searchBar.text!)){
                         self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller, id: id))
+                        self.theDataTemp=self.theData
                         }
                     }
                 }

@@ -146,18 +146,25 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             
         }
         
+        self.TitleField.text=""
+        self.Description.text=""
+        self.Price.text=""
+        self.category=""
+        self.image1.image=nil
+        self.image2.image=nil
+        self.image3.image=nil
+
         
     }
 
     
     @IBAction func Submit(_ sender: Any) {
-    
         let productTitle=TitleField.text
         let productDescription=Description.text
         let productPrice=Price.text
         
         
-        let postInfo = ["title": productTitle, "price": productPrice, "image1":"", "image2":"", "image3":"", "description":productDescription,"status": "forsale", "category":self.category,"sellerEmail": FIRAuth.auth()?.currentUser?.email,  "seller": FIRAuth.auth()?.currentUser?.uid, "anonymous": "true"]
+        let postInfo = ["title": productTitle, "price": productPrice, "image1":"", "image2":"", "image3":"", "description":productDescription, "category":self.category, "seller": FIRAuth.auth()?.currentUser?.uid, "status": "forsale", "sellerEmail": FIRAuth.auth()?.currentUser?.email, "anonymous": "true"]
         
         let reference  = self.ref.child("items").childByAutoId()
         
@@ -176,17 +183,22 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             print(filePath)
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpg"
+            print("weishenmenibujinqu")
             self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
                 guard metaData != nil else {
+                    print("qianru")
                     print(error?.localizedDescription as Any)
                     return
                 }
-                    //store downloadURL
-                    let downloadURL = metaData!.downloadURL()!.absoluteString
-                    print(downloadURL)
-                    //store downloadURL at database
-                    
-                    self.ref.child("items/\(childautoID)/image1").setValue(downloadURL)
+                print("houru")
+                
+                //store downloadURL
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+                print(downloadURL)
+                //store downloadURL at database
+                
+                self.ref.child("items/\(childautoID)/image1").setValue(downloadURL)
+                self.tabBarController?.selectedIndex=1
                 
             }
             
@@ -202,18 +214,15 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
             metaData.contentType = "image/jpg"
             self.storageRef.child(filePath).put(data as Data, metadata: metaData){(metaData,error) in
                 guard metaData != nil else {
-                    print("qianru")
                     print(error?.localizedDescription as Any)
                     return
                 }
-                    print("houru")
-                    
-                    //store downloadURL
-                    let downloadURL = metaData!.downloadURL()!.absoluteString
-                    print(downloadURL)
-                    //store downloadURL at database
-                    
-                    self.ref.child("items/\(childautoID)/image2").setValue(downloadURL)
+                //store downloadURL
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+                print(downloadURL)
+                //store downloadURL at database
+                
+                self.ref.child("items/\(childautoID)/image2").setValue(downloadURL)
                 
             }
             
@@ -232,19 +241,26 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
                     print(error?.localizedDescription as Any)
                     return
                 }
-                    //store downloadURL
-                    let downloadURL = metaData!.downloadURL()!.absoluteString
-                    print(downloadURL)
-                    //store downloadURL at database
-                    
-                    self.ref.child("items/\(childautoID)/image3").setValue(downloadURL)
+                //store downloadURL
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+                print(downloadURL)
+                //store downloadURL at database
+                
+                self.ref.child("items/\(childautoID)/image3").setValue(downloadURL)
                 
             }
             
+            
+            
         }
         
-        tabBarController?.selectedIndex=1
-
+        self.TitleField.text=""
+        self.Description.text=""
+        self.Price.text=""
+        self.category=""
+        self.image1.image=nil
+        self.image2.image=nil
+        self.image3.image=nil
         
         
     }
