@@ -14,8 +14,9 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     
+    @IBOutlet weak var priceSlider: UISlider!
     @IBOutlet weak var clearFavorite: UIButton!
-    @IBOutlet weak var yearSlider: UISlider!
+   // @IBOutlet weak var yearSlider: UISlider!
     @IBOutlet weak var searchBar: UISearchBar!
     var theData:[Item] = []
     var theDataTemp:[Item]=[]
@@ -24,16 +25,17 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     var collectionView: UICollectionView!
     var movieTitle:String=""
     var notFound:UITextView=UITextView(frame:CGRect(x: 140, y: 300, width: 200, height: 200))
-    var priceArray:[Int]=[]
+    var priceArray:[Float]=[]
     var ref: FIRDatabaseReference! = FIRDatabase.database().reference()
     
     @IBAction func buttonClicked(_ sender: UIButton) {
         UserDefaults.standard.set([], forKey: "favoriteMovie")
         UserDefaults.standard.synchronize()
     }
+
     
     @IBAction func priceFilter(_ sender: UISlider) {
-        
+        theData.removeAll()
         if theDataTemp.count==0 {
             return
         }
@@ -41,11 +43,14 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
             print(sender.value)
             var filteredItem:[Item]=[]
             for item in theDataTemp{
-                if(String(sender.value)>=item.price){
+                if(sender.value>=(item.price as NSString).floatValue){
                     filteredItem.append(item)
                 }
             }
             theData=filteredItem
+        }
+        for item1 in theData{
+            print(item1.name)
         }
         collectionView.reloadData()
     }
@@ -53,7 +58,6 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         indicator.center=view.center
         //indicator.hidesWhenStopped=true
         notFound.text="No Results"
@@ -91,7 +95,11 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
                         
                         self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller, id: id))
                         self.theDataTemp = self.theData
-                        var
+                          self.priceArray.append((price as NSString).floatValue)
+                        self.priceArray.sort()
+                         self.priceSlider.maximumValue=self.priceArray[self.priceArray.count-1]
+                        self.priceSlider.value=self.priceArray[self.priceArray.count-1]
+                        print("The Max is \(self.priceSlider.maximumValue)")
                     }
                 }
                 self.collectionView.reloadData()
@@ -140,6 +148,11 @@ class MarketViewController: UIViewController,UICollectionViewDelegateFlowLayout,
                         if(name.contains(searchBar.text!)){
                         self.theData.append(Item(name:name,url:image,price:price,category: category, seller: seller, id: id))
                         self.theDataTemp=self.theData
+                            self.priceArray.append((price as NSString).floatValue)
+                            self.priceArray.sort()
+                            self.priceSlider.maximumValue=self.priceArray[self.priceArray.count-1]
+                            self.priceSlider.value=self.priceArray[self.priceArray.count-1]
+                            print("The Max is \(self.priceSlider.maximumValue)")
                         }
                     }
                 }

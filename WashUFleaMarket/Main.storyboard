@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GBq-sz-eb2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GBq-sz-eb2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -458,12 +458,9 @@
                                 <rect key="frame" x="14" y="7" width="133" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="yearFiltered:" destination="1Qx-Tf-oHI" eventType="valueChanged" id="92G-Dn-jh4"/>
+                                    <action selector="priceFilter:" destination="1Qx-Tf-oHI" eventType="valueChanged" id="LD7-pK-MN4"/>
                                 </connections>
                             </slider>
-                            <connections>
-                                <action selector="priceFilter:" destination="1Qx-Tf-oHI" id="w4B-IO-xQ9"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="W1J-ew-lSD">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Td-Be-98e">
@@ -479,8 +476,8 @@
                     <connections>
                         <outlet property="clearFavorite" destination="7Td-Be-98e" id="2YY-Zu-WRZ"/>
                         <outlet property="indicator" destination="22H-gf-63K" id="0oa-0n-Jmm"/>
+                        <outlet property="priceSlider" destination="XVl-vL-I1R" id="zjk-aF-QbT"/>
                         <outlet property="searchBar" destination="iyV-hQ-cn8" id="w2e-Rx-CdL"/>
-                        <outlet property="yearSlider" destination="XVl-vL-I1R" id="IiH-zO-frU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8s-ij-tRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
