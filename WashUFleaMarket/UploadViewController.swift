@@ -20,7 +20,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate,UI
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
     @IBOutlet weak var CatPicker: UIPickerView!
-    let optionsA = ["Electronics" ,"Clothes", "Beauty", "Shoes", "Food", "Accessories", "Furniture"]
+    let optionsA = ["Electronics" ,"Clothes", "Beauty", "Shoes", "Food", "Accessories", "Furniture","Other"]
     let imagePicker = UIImagePickerController()
     
     var ref: FIRDatabaseReference!
